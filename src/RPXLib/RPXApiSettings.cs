@@ -6,16 +6,16 @@ namespace RPXLib
     public class RPXApiSettings : IRPXApiSettings
     {
         private readonly string apiKey;
-        private readonly string baseUrl;
+        private readonly string apiBaseUrl;
         private readonly IWebProxy webProxy;
 
-        public RPXApiSettings(string baseUrl, string apiKey) : this(baseUrl, apiKey, null)
+        public RPXApiSettings(string apiBaseUrl, string apiKey) : this(apiBaseUrl, apiKey, null)
         {
         }
 
-        public RPXApiSettings(string baseUrl, string apiKey, IWebProxy webProxy)
+        public RPXApiSettings(string apiBaseUrl, string apiKey, IWebProxy webProxy)
         {
-            this.baseUrl = baseUrl;
+            this.apiBaseUrl = apiBaseUrl;
             this.apiKey = apiKey;
             this.webProxy = webProxy;
         }
@@ -32,9 +32,9 @@ namespace RPXLib
             get { return apiKey; }
         }
 
-        public string BaseUrl
+        public string ApiBaseUrl
         {
-            get { return baseUrl; }
+            get { return apiBaseUrl; }
         }
 
         #endregion

@@ -25,14 +25,13 @@ namespace RPX.Web.MVC.Controllers
 
             throw new Exception("Once you have set your api key value, this exception can then be removed.");
             //TODO: Get the api key from your RPX account configuration - https://rpxnow.com/account
-            const string apiKey = "your key goes here";
+            const string apiKey = "your_key_goes_here";
 
             //if you need to access the service via a web proxy set the proxy details here
             const IWebProxy webProxy = null;
 
             var settings = new RPXApiSettings(baseUrl, apiKey, webProxy);
-            var api = new RPXApiWrapper(settings);
-            rpxService = new RPXService(api);
+            rpxService = new RPXService(settings);
         }
 
         /// <summary>

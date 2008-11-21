@@ -9,6 +9,11 @@ namespace RPXLib
     {
         private readonly IRPXApiWrapper apiWrapper;
 
+        public RPXService(IRPXApiSettings apiSettings)
+        {
+            apiWrapper = new RPXApiWrapper(apiSettings);
+        }
+
         public RPXService(IRPXApiWrapper apiWrapper)
         {
             this.apiWrapper = apiWrapper;

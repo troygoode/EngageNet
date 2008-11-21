@@ -5,7 +5,7 @@ namespace RPXLib.Interfaces
     public interface IRPXApiSettings
     {
         string ApiKey { get; }
-        string BaseUrl { get; }
+        string ApiBaseUrl { get; }
         IWebProxy WebProxy { get; }
     }
 }

@@ -19,7 +19,7 @@ namespace RPXLib
         //this is for my testing purposes only
         public RPXApiWrapper(IRPXApiSettings settings)
         {
-            var url = settings.BaseUrl;
+            var url = settings.ApiBaseUrl;
             if (!url.EndsWith(@"/"))
                 url = url + "/";
 
