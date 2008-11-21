@@ -16,8 +16,7 @@ namespace RPX.Web.MVC.Extensions
         {
             throw new Exception("Once you have set your realm value, this exception can then be removed.");
             //TODO: Get the realm value from your RPX account configuration - https://rpxnow.com/account
-            //return "your.rpx.realm";
-            return "rpxtest";
+            return "your.rpx.realm";            
         }
     }
 }
