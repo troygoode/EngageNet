@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPXLib", "RPXLib\RPXLib.csproj", "{FFEC4881-58C8-43BC-B0C3-D97114725C70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPXLib.Tests", "RPXLib.Tests\RPXLib.Tests.csproj", "{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPX.Web.MVC", "RPX.Web.MVC\RPX.Web.MVC.csproj", "{7ADF6598-8CC2-4149-A2ED-570100069C3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFEC4881-58C8-43BC-B0C3-D97114725C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFEC4881-58C8-43BC-B0C3-D97114725C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFEC4881-58C8-43BC-B0C3-D97114725C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFEC4881-58C8-43BC-B0C3-D97114725C70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ADF6598-8CC2-4149-A2ED-570100069C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ADF6598-8CC2-4149-A2ED-570100069C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ADF6598-8CC2-4149-A2ED-570100069C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ADF6598-8CC2-4149-A2ED-570100069C3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
