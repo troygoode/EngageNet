@@ -61,6 +61,10 @@
     <Compile Include="Data\RPXIdentifiers.cs" />
     <Compile Include="RPXService.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="RPXLib.cd" />
+    <None Include="Data\Data.cd" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
