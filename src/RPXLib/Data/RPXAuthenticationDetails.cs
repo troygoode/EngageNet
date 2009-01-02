@@ -58,9 +58,9 @@ namespace RPXLib.Data
             get { return GetPropertyValue("photo"); }
         }
 
-        public string PrefferedUsername
+        public string PreferredUsername
         {
-            get { return GetPropertyValue("prefferedUsername"); }
+            get { return GetPropertyValue("preferredUsername"); }
         }
 
         public string Url

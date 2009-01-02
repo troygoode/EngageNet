@@ -11,10 +11,10 @@ namespace RPX.Web.MVC.Controllers
     public class RPXAuthenticationController : Controller
     {
         /// <summary>
-        /// 
         /// Don't forget to map a route to this controller, if you decide to use this base implementation
         /// Check the global.asax.cs file for example routing
         /// </summary>
+        
         private readonly IRPXService rpxService;
 
         public RPXAuthenticationController()
@@ -37,7 +37,7 @@ namespace RPX.Web.MVC.Controllers
         /// <summary>
         /// Pretty please use a Dependency Injection framework and 
         /// register the implementation of this interface so it can 
-        /// be resolved for you automatically constructor.
+        /// be resolved for you automatically in the constructor.
         /// 
         /// It is for your own good!
         /// </summary>

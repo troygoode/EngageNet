@@ -83,11 +83,11 @@ namespace RPXLib.Tests.Data
         }
 
         [Test]
-        public void CanPopulatePrefferedUsernameProperty()
+        public void CanPopulatePreferredUsernameProperty()
         {
-            Assert.IsNull(details.PrefferedUsername);
-            details.AddProperty("prefferedUsername", "dn");
-            Assert.AreEqual("dn", details.PrefferedUsername);
+            Assert.IsNull(details.PreferredUsername);
+            details.AddProperty("preferredUsername", "dn");
+            Assert.AreEqual("dn", details.PreferredUsername);
         }
 
         [Test]
