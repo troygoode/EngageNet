@@ -90,6 +90,14 @@ namespace RPXLib.Tests.Data
             Assert.AreEqual("dn", details.PreferredUsername);
         }
 
+		[Test]
+		public void CanPopulateProviderNameProperty()
+		{
+			Assert.IsNull(details.ProviderName);
+			details.AddProperty("providerName", "Facebook");
+			Assert.AreEqual("Facebook", details.ProviderName);
+		}
+
         [Test]
         public void CanPopulateUrlProperty()
         {

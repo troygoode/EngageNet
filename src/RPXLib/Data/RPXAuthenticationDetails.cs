@@ -32,7 +32,6 @@ namespace RPXLib.Data
             get { return GetPropertyValue("gender"); }
         }
 
-
         public string Identifier
         {
             get { return GetPropertyValue("identifier"); }
@@ -62,6 +61,11 @@ namespace RPXLib.Data
         {
             get { return GetPropertyValue("preferredUsername"); }
         }
+
+    	public string ProviderName
+    	{
+    		get { return GetPropertyValue("providerName"); }
+    	}
 
         public string Url
         {
