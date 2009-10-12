@@ -10,9 +10,7 @@ namespace RPXLib.Data
             var identifiers = new RPXIdentifiers();
 
             foreach (var element in xElement.Element("identifiers").Elements("identifier"))
-            {
                 identifiers.Add(element.Value);
-            }
 
             return identifiers;
         }

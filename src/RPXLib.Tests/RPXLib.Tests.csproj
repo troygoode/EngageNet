@@ -53,13 +53,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\RPXContactEmailAddressTests.cs" />
+    <Compile Include="Data\RPXContactTests.cs" />
+    <Compile Include="RPXServiceActivityTests.cs" />
+    <Compile Include="RPXServiceStatusTests.cs" />
+    <Compile Include="RPXServiceContactsTests.cs" />
+    <Compile Include="RPXServiceGetAuthenticationDetailsTests.cs" />
+    <Compile Include="RPXServiceMappingTests.cs" />
     <Compile Include="Data\RPXAddressTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RPXApiResponseParserTests.cs" />
     <Compile Include="RPXApiWrapperTests.cs" />
     <Compile Include="Data\RPXAuthenticationDetailsTests.cs" />
     <Compile Include="Data\RPXNameTests.cs" />
-    <Compile Include="RPXServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RPXLib\RPXLib.csproj">

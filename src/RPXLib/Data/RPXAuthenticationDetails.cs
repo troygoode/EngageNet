@@ -113,6 +113,12 @@ namespace RPXLib.Data
                 }
             }
 
+			if(details.Name == null)
+				details.AssignName(new RPXName());
+
+			if(details.Address == null)
+				details.AssignAddress(new RPXAddress());
+
             return details;
         }
     }

@@ -46,10 +46,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\RPXActivity.cs" />
+    <Compile Include="Data\RPXActivityMedia.cs" />
+    <Compile Include="Data\RPXActivityMediaFlash.cs" />
+    <Compile Include="Data\RPXActivityMediaImage.cs" />
+    <Compile Include="Data\RPXActivityMediaMp3.cs" />
+    <Compile Include="Data\RPXActivityMediaVideo.cs" />
+    <Compile Include="Data\RPXAllIdentifiers.cs" />
+    <Compile Include="Data\RPXContact.cs" />
+    <Compile Include="Data\RPXContactEmailAddress.cs" />
+    <Compile Include="Data\RPXGetContactsResponse.cs" />
+    <Compile Include="Exceptions\RPXTokenUrlMismatchException.cs" />
+    <Compile Include="RPXException.cs" />
     <Compile Include="Data\RPXAddress.cs" />
     <Compile Include="Data\RPXAuthenticationDetails.cs" />
     <Compile Include="Data\RPXElementBase.cs" />
     <Compile Include="Data\RPXName.cs" />
+    <Compile Include="Exceptions\RPXResponseException.cs" />
+    <Compile Include="Exceptions\RPXMappingExistsException.cs" />
+    <Compile Include="Exceptions\RPXAccountUpgradeNeededException.cs" />
+    <Compile Include="Exceptions\RPXApplicationConfigurationException.cs" />
+    <Compile Include="Exceptions\RPXAuthenticationErrorException.cs" />
+    <Compile Include="Exceptions\RPXCredentialsMissingException.cs" />
+    <Compile Include="Exceptions\RPXCredentialsRevokedException.cs" />
+    <Compile Include="Exceptions\RPXDataNotFoundException.cs" />
+    <Compile Include="Exceptions\RPXFacebookErrorException.cs" />
+    <Compile Include="Exceptions\RPXInvalidParameterException.cs" />
+    <Compile Include="Exceptions\RPXMissingParameterException.cs" />
+    <Compile Include="Exceptions\RPXPreviouslyOperationalProviderException.cs" />
+    <Compile Include="Exceptions\RPXServiceTemporarilyUnavailableException.cs" />
+    <Compile Include="Exceptions\RPXUnknownResponseException.cs" />
+    <Compile Include="Exceptions\RPXUnsupportedProviderFeatureException.cs" />
     <Compile Include="Interfaces\IRPXApiSettings.cs" />
     <Compile Include="Interfaces\IRPXApiWrapper.cs" />
     <Compile Include="Interfaces\IRPXService.cs" />
@@ -57,7 +84,6 @@
     <Compile Include="RPXApiSettings.cs" />
     <Compile Include="RPXApiWrapper.cs" />
     <Compile Include="RPXApiResponseParser.cs" />
-    <Compile Include="RPXAuthenticationException.cs" />
     <Compile Include="Data\RPXIdentifiers.cs" />
     <Compile Include="RPXService.cs" />
   </ItemGroup>

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using NUnit.Framework;
@@ -7,7 +8,7 @@ using RPXLib.Interfaces;
 namespace RPXLib.Tests
 {
     [TestFixture]
-    public class RPXServiceTests
+    public class RPXServiceMappingTests
     {
         #region Setup/Teardown
 
@@ -23,52 +24,28 @@ namespace RPXLib.Tests
         private RPXService rpxService;
         private IRPXApiWrapper mockApiWrapper;
 
-        [Test]
-        public void GetAuthenticationDetails_CallsApiWrapperWithCorrectDetails()
-        {
-            var emptyResponse = new XElement("rsp", new XElement("profile"));
+		[Test]
+		public void GetAllMappings_CallsApiWrapperWithCorrectDetails()
+		{
+			var emptyResponse = new XElement("rsp",
+			                                 new XElement("mappings",
+			                                              new XElement("mapping",
+			                                                           new XElement("primaryKey"),
+			                                                           new XElement("identifiers")
+			                                              	)
+			                                 	)
+				);
 
-            mockApiWrapper.Expect(
-                w => w.Call(
-                         Arg<string>.Matches(s => s.Equals("auth_info")),
-                         Arg<IDictionary<string, string>>.Matches(
-                             d => d["token"].Equals("token")))).Return(emptyResponse);
+			mockApiWrapper.Expect(
+				w => w.Call(
+				     	Arg<string>.Matches(s => s.Equals("all_mappings")),
+				     	Arg<IDictionary<string, string>>.Matches(
+				     		d => d.Count == 0))).Return(emptyResponse);
 
-            rpxService.GetAuthenticationDetails("token");
+			rpxService.GetAllMappings();
 
-            mockApiWrapper.VerifyAllExpectations();
-        }
-
-        [Test]
-        public void GetAuthenticationDetails_Extended_CallsApiWrapperWithCorrectDetails()
-        {
-            var emptyResponse = new XElement("rsp", new XElement("profile"));
-
-            mockApiWrapper.Expect(
-                w => w.Call(
-                         Arg<string>.Matches(s => s.Equals("auth_info")),
-                         Arg<IDictionary<string, string>>.Matches(
-                             d => d["token"].Equals("token") &&
-                                  d["extended"].Equals("true")))).Return(emptyResponse);
-
-            rpxService.GetAuthenticationDetails("token", true);
-
-            mockApiWrapper.VerifyAllExpectations();
-        }
-
-        [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
-        public void GetAuthenticationDetails_ThrowsOnEmptyToken()
-        {
-            rpxService.GetAuthenticationDetails("");
-        }
-
-        [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
-        public void GetAuthenticationDetails_ThrowsOnNullToken()
-        {
-            rpxService.GetAuthenticationDetails(null);
-        }
+			mockApiWrapper.VerifyAllExpectations();
+		}
 
         [Test]
         public void GetMappings_CallsApiWrapperWithCorrectDetails()
@@ -86,16 +63,15 @@ namespace RPXLib.Tests
             mockApiWrapper.VerifyAllExpectations();
         }
 
-
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void GetMappings_ThrowsOnEmptyLocalKey()
         {
             rpxService.GetAllMappings("");
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void GetMappings_ThrowsOnNullLocalKey()
         {
             rpxService.GetAllMappings(null);
@@ -117,28 +93,28 @@ namespace RPXLib.Tests
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void MapLocalKey_ThrowsOnEmptyIdentifier()
         {
             rpxService.MapLocalKey("", "key");
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void MapLocalKey_ThrowsOnEmptyLocalKey()
         {
             rpxService.MapLocalKey("id", "");
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void MapLocalKey_ThrowsOnNullIdentifier()
         {
             rpxService.MapLocalKey(null, "key");
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void MapLocalKey_ThrowsOnNullLocalKey()
         {
             rpxService.MapLocalKey("id", null);
@@ -160,28 +136,28 @@ namespace RPXLib.Tests
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void UnmapLocalKey_ThrowsOnEmptyIdentifier()
         {
             rpxService.UnmapLocalKey("", "key");
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void UnmapLocalKey_ThrowsOnEmptyLocalKey()
         {
             rpxService.UnmapLocalKey("id", "");
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void UnmapLocalKey_ThrowsOnNullIdentifier()
         {
             rpxService.UnmapLocalKey(null, "key");
         }
 
         [Test]
-        [ExpectedException(typeof (RPXAuthenticationException))]
+		[ExpectedException(typeof(ArgumentNullException))]
         public void UnmapLocalKey_ThrowsOnNullLocalKey()
         {
             rpxService.UnmapLocalKey("id", null);

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using RPXLib.Data;
@@ -21,14 +22,79 @@ namespace RPXLib
 
         #region IRPXService Members
 
-        public RPXIdentifiers GetAllMappings(string localKey)
+    	public RPXGetContactsResponse GetContacts(string authenticationDetailsIdentifier)
+    	{
+			if (string.IsNullOrEmpty(authenticationDetailsIdentifier))
+				throw new ArgumentNullException("authenticationDetailsIdentifier", "The identifier supplied to the GetContacts request was null or empty");
+
+			var req = new Dictionary<string, string>
+        	          	{
+        	          		{"identifier", authenticationDetailsIdentifier}
+        	          	};
+
+			XElement returnedElement = apiWrapper.Call("get_contacts", req);
+			return RPXGetContactsResponse.FromXElement(returnedElement);
+    	}
+
+    	public void UpdateStatus(string authenticationDetailsIdentifier, string status)
+    	{
+			if (string.IsNullOrEmpty(authenticationDetailsIdentifier))
+				throw new ArgumentNullException("authenticationDetailsIdentifier", "The identifier supplied to the UpdateStatus request was null or empty");
+
+			if (string.IsNullOrEmpty(status))
+				throw new ArgumentNullException("status", "The status supplied to the UpdateStatus request was null or empty");
+
+			var req = new Dictionary<string, string>
+        	          	{
+        	          		{"identifier", authenticationDetailsIdentifier},
+        	          		{"status", status}
+        	          	};
+
+			apiWrapper.Call("set_status", req);
+    	}
+
+    	public void AddActivity(string authenticationDetailsIdentifier, RPXActivity activity)
+    	{
+    		throw new NotImplementedException();
+
+			if (string.IsNullOrEmpty(authenticationDetailsIdentifier))
+				throw new ArgumentNullException("authenticationDetailsIdentifier", "The identifier supplied to the AddActivity request was null or empty");
+
+			if (activity == null)
+				throw new ArgumentNullException("activity", "The activity supplied to the AddActivity request was null");
+
+			if(string.IsNullOrEmpty(activity.Url))
+				throw new ArgumentNullException("activity", "The activity supplied to the AddActivity request has a null or empty value for its Url property");
+
+			if (string.IsNullOrEmpty(activity.Action))
+				throw new ArgumentNullException("activity", "The activity supplied to the AddActivity request has a null or empty value for its Action property");
+
+			var req = new Dictionary<string, string>
+        	          	{
+        	          		{"identifier", authenticationDetailsIdentifier},
+        	          		{"activity", activity.ToString()} //BUG: serailize activity as JSON
+        	          	};
+
+			apiWrapper.Call("activity", req);
+    	}
+
+    	public IDictionary<string,IEnumerable<string>> GetAllMappings()
+		{
+    		var req = new Dictionary<string, string>();
+
+    		XElement returnedElement = apiWrapper.Call("all_mappings", req);
+    		return RPXAllIdentifiers.FromXElement(returnedElement);
+		}
+
+        public IEnumerable<string> GetAllMappings(string localKey)
         {
             if (string.IsNullOrEmpty(localKey))
-                throw new RPXAuthenticationException(
-                    "The local key supplied to the GetAllMappings request was null or empty");
+                throw new ArgumentNullException("localKey", "The local key supplied to the GetAllMappings request was null or empty");
 
-            var req = new Dictionary<string, string>();
-            req.Add("primaryKey", localKey);
+        	var req = new Dictionary<string, string>
+        	          	{
+        	          		{"primaryKey", localKey}
+        	          	};
 
             XElement returnedElement = apiWrapper.Call("mappings", req);
             return RPXIdentifiers.FromXElement(returnedElement);
@@ -46,16 +112,16 @@ namespace RPXLib
         public void MapLocalKey(string authenticationDetailsIdentifier, string localKey)
         {
             if (string.IsNullOrEmpty(authenticationDetailsIdentifier))
-                throw new RPXAuthenticationException(
-                    "The identifier supplied to the MapLocalKey request was null or empty");
+				throw new ArgumentNullException("authenticationDetailsIdentifier", "The identifier supplied to the MapLocalKey request was null or empty");
 
             if (string.IsNullOrEmpty(localKey))
-                throw new RPXAuthenticationException(
-                    "The local key supplied to the MapLocalKey request was null or empty");
+				throw new ArgumentNullException("localKey", "The local key supplied to the MapLocalKey request was null or empty");
 
-            var req = new Dictionary<string, string>();
-            req.Add("identifier", authenticationDetailsIdentifier);
-            req.Add("primaryKey", localKey);
+        	var req = new Dictionary<string, string>
+        	          	{
+        	          		{"identifier", authenticationDetailsIdentifier},
+        	          		{"primaryKey", localKey}
+        	          	};
 
             apiWrapper.Call("map", req);
         }
@@ -63,16 +129,16 @@ namespace RPXLib
         public void UnmapLocalKey(string authenticationDetailsIdentifier, string localKey)
         {
             if (string.IsNullOrEmpty(authenticationDetailsIdentifier))
-                throw new RPXAuthenticationException(
-                    "The identifier supplied to the UnmapLocalKey request was null or empty");
+                throw new ArgumentNullException("authenticationDetailsIdentifier", "The identifier supplied to the UnmapLocalKey request was null or empty");
 
             if (string.IsNullOrEmpty(localKey))
-                throw new RPXAuthenticationException(
-                    "The local key supplied to the UnmapLocalKey request was null or empty");
+				throw new ArgumentNullException("localKey", "The local key supplied to the UnmapLocalKey request was null or empty");
 
-            var req = new Dictionary<string, string>();
-            req.Add("identifier", authenticationDetailsIdentifier);
-            req.Add("primaryKey", localKey);
+        	var req = new Dictionary<string, string>
+        	          	{
+        	          		{"identifier", authenticationDetailsIdentifier},
+        	          		{"primaryKey", localKey}
+        	          	};
 
             apiWrapper.Call("unmap", req);
         }
@@ -80,11 +146,12 @@ namespace RPXLib
         public RPXAuthenticationDetails GetAuthenticationDetails(string token, bool extended)
         {
             if (string.IsNullOrEmpty(token))
-                throw new RPXAuthenticationException(
-                    "The token supplied to the GetAuthenticationDetails request was null or empty");
+                throw new ArgumentNullException("token", "The token supplied to the GetAuthenticationDetails request was null or empty");
 
-            var req = new Dictionary<string, string>();
-            req.Add("token", token);
+        	var req = new Dictionary<string, string>
+        	          	{
+        	          		{"token", token}
+        	          	};
             if (extended)
                 req.Add("extended", "true");
 
