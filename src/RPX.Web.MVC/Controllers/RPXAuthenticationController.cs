@@ -46,10 +46,8 @@ namespace RPX.Web.MVC.Controllers
             this.rpxService = rpxService;
         }
 
-        public ActionResult HandleResponse()
+        public ActionResult HandleResponse(string token)
         {
-            string token = Request.QueryString["token"];
-
             //according to the spec, it is possible to get here without a token
             //which means that the user cancelled the login request
             if (string.IsNullOrEmpty(token))
