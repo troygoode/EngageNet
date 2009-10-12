@@ -7,7 +7,7 @@ namespace RPXLib.Interfaces
     {
     	RPXGetContactsResponse GetContacts(string authenticationDetailsIdentifier);
 		void UpdateStatus(string authenticationDetailsIdentifier, string status);
-		void AddActivity(string authenticationDetailsIdentifier, RPXActivity activity);
+		//void AddActivity(string authenticationDetailsIdentifier, RPXActivity activity);
 
     	IDictionary<string, IEnumerable<string>> GetAllMappings();
         IEnumerable<string> GetAllMappings(string localKey);
@@ -15,6 +15,7 @@ namespace RPXLib.Interfaces
         void MapLocalKey(string authenticationDetailsIdentifier, string localKey);
         void UnmapLocalKey(string authenticationDetailsIdentifier, string localKey);
 
+    	RPXAuthenticationDetails GetUserData(string authenticationDetailsIdentifier);
         RPXAuthenticationDetails GetAuthenticationDetails(string token, bool extended);
         RPXAuthenticationDetails GetAuthenticationDetails(string token);
     }

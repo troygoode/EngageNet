@@ -143,6 +143,20 @@ namespace RPXLib
             apiWrapper.Call("unmap", req);
         }
 
+		public RPXAuthenticationDetails GetUserData(string authenticationDetailsIdentifier)
+		{
+			if (string.IsNullOrEmpty(authenticationDetailsIdentifier))
+				throw new ArgumentNullException("authenticationDetailsIdentifier", "The authenticationDetailsIdentifier supplied to the GetUserData request was null or empty");
+
+			var req = new Dictionary<string, string>
+        	          	{
+        	          		{"identifier", authenticationDetailsIdentifier}
+        	          	};
+
+			var returnedElement = apiWrapper.Call("get_user_data", req);
+			return RPXAuthenticationDetails.FromXElement(returnedElement);
+		}
+
         public RPXAuthenticationDetails GetAuthenticationDetails(string token, bool extended)
         {
             if (string.IsNullOrEmpty(token))
