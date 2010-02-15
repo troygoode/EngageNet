@@ -7,25 +7,13 @@ namespace RPXLib.Tests
     [TestFixture]
     public class RPXApiResponseParserTests
     {
-        #region Setup/Teardown
-
-        [SetUp]
-        public void TestSetup()
-        {
-            service = new RPXApiResponseParser();
-        }
-
-        #endregion
-
-        private RPXApiResponseParser service;
-
-		[Test]
+        [Test]
 		[ExpectedException(typeof(RPXServiceTemporarilyUnavailableException), ExpectedMessage = "Service Temporarily Unavailable")]
 		public void HandlesServiceTemporarilyUnavailableErrorCodeByThrowingException()
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Service Temporarily Unavailable' code='-1'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -34,7 +22,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Missing parameter' code='0'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -43,7 +31,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Invalid parameter' code='1'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
         [Test]
@@ -52,7 +40,7 @@ namespace RPXLib.Tests
         {
             var errResponse =
                 "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Data not found' code='2'/></rsp>";
-            service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
         }
 
 		[Test]
@@ -61,7 +49,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Token URL mismatch: (your tokenUrl parameter) (original token URL)' code='3'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -70,7 +58,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Authentication error' code='3'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -79,7 +67,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Facebook Error' code='4'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -88,7 +76,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Mapping exists' code='5'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -97,7 +85,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Error interacting with a previously operational provider' code='6'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -106,7 +94,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='RPX account upgrade needed to access this API' code='7'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -115,7 +103,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Missing third-party credentials for this identifier' code='8'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -124,7 +112,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Third-party credentials have been revoked' code='9'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -133,7 +121,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Your application is not properly configured' code='10'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -142,7 +130,7 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='The provider or identifier does not support this feature' code='11'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
@@ -151,28 +139,28 @@ namespace RPXLib.Tests
 		{
 			var errResponse =
 				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Lorem Ipsum Dolor' code='-999'/></rsp>";
-			service.Parse(errResponse);
+            RPXApiResponseParser.Parse(errResponse);
 		}
 
         [Test]
 		[ExpectedException(typeof(RPXException))]
         public void ThrowsOnBlankInput()
         {
-            service.Parse("");
+            RPXApiResponseParser.Parse("");
         }
 
         [Test]
         [ExpectedException(typeof (RPXException))]
         public void ThrowsOnNullReaderInput()
         {
-            service.Parse((TextReader) null);
+            RPXApiResponseParser.Parse((TextReader)null);
         }
 
         [Test]
 		[ExpectedException(typeof(RPXException))]
         public void ThrowsOnNullStringInput()
         {
-            service.Parse((string) null);
+            RPXApiResponseParser.Parse((string)null);
         }
     }
 }

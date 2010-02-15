@@ -13,7 +13,6 @@ namespace RPXLib
     {
         private readonly string apiKey;
         private readonly string baseUrl;
-        private readonly RPXApiResponseParser responseParser = new RPXApiResponseParser();
         private readonly IWebProxy webProxy;
 
         //this is for my testing purposes only
@@ -51,7 +50,7 @@ namespace RPXLib
             using (Stream dataStream = response.GetResponseStream())
             using (var responseReader = new StreamReader(dataStream))
             {
-                return responseParser.Parse(responseReader);
+                return RPXApiResponseParser.Parse(responseReader);
             }
         }
 
@@ -82,7 +81,7 @@ namespace RPXLib
             query.Add("format", "xml");
             query.Add("apiKey", ApiKey);
 
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
             foreach (KeyValuePair<string, string> e in query)
             {
                 if (sb.Length > 0)

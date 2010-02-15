@@ -4,14 +4,14 @@ using RPXLib.Exceptions;
 
 namespace RPXLib
 {
-	public class RPXApiResponseParser
+	public static class RPXApiResponseParser
 	{
-		public XElement Parse(TextReader responseReader)
+		public static XElement Parse(TextReader responseReader)
 		{
 			if (responseReader == null)
 				throw new RPXException("No response to parse");
 
-			var doc = XDocument.Load(responseReader, LoadOptions.None);
+		    var doc = XDocument.Load(responseReader, LoadOptions.None);
 			if (doc.Root.Attribute("stat").Value == "ok")
 				return doc.Root;
 
@@ -53,7 +53,7 @@ namespace RPXLib
 			}
 		}
 
-		public XElement Parse(string responseString)
+		public static XElement Parse(string responseString)
 		{
 			if (string.IsNullOrEmpty(responseString))
 				throw new RPXException("No response to parse.");
