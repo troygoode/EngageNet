@@ -2,13 +2,13 @@ The [RPX OpenID](http://rpxnow.com/) authentication service is a public API to s
 
 Included is a sample ASP.Net MVC sample web site to demonstrate the integration points with the library.
 
-# The release
+# The Releases
 
-Go to the downloads page and get the latest RPXLib.dll.
+Check the [wiki](http://wiki.github.com/TroyGoode/RpxLib/).
 
-# The doco
+# The Documentation
 
-Check the wiki.
+Check the [wiki](http://wiki.github.com/TroyGoode/RpxLib/).
 
 # Please help
 
