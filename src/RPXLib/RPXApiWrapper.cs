@@ -42,7 +42,7 @@ namespace RPXLib
         public XElement Call(string methodName, IDictionary<string, string> queryData)
         {
             string postData = GeneratePostData(queryData);
-            Uri requestUri = new Uri(BaseUrl + methodName);
+            Uri requestUri = new Uri(BaseUrl + methodName + "?" + postData);
 
             HttpWebRequest request = BuildApiWebRequest(requestUri, postData);
 
@@ -59,19 +59,10 @@ namespace RPXLib
         private HttpWebRequest BuildApiWebRequest(Uri requestUri, string postData)
         {
             HttpWebRequest apiWebRequest = (HttpWebRequest) WebRequest.Create(requestUri);
-            apiWebRequest.Method = "POST";
-            apiWebRequest.ContentType = "application/x-www-form-urlencoded";
-            apiWebRequest.ContentLength = postData.Length;
 
             if (webProxy != null)
                 apiWebRequest.Proxy = webProxy;
 
-            // Write the request
-            using (var stOut = new StreamWriter(apiWebRequest.GetRequestStream(), Encoding.ASCII))
-            {
-                stOut.Write(postData);
-                stOut.Close();
-            }
             return apiWebRequest;
         }
 
