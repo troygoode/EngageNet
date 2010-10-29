@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>EngageNet-Mvc</id>
+    <id>EngageNet.Mvc</id>
     <version>1.0.0.0</version>
     <authors>Troy Goode, Steven Burman</authors>
     <projectUrl>http://github.com/TroyGoode/EngageNet</projectUrl>
