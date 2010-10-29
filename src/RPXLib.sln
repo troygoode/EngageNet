@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPXLib", "RPXLib\RPXLib.csproj", "{FFEC4881-58C8-43BC-B0C3-D97114725C70}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPXLib.Tests", "RPXLib.Tests\RPXLib.Tests.csproj", "{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}"
