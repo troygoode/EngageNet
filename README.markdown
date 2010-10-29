@@ -81,5 +81,3 @@ public RedirectToRouteResult ProcessLogOn(string token)
 </pre>
 
 ## Step 6: Create LogOnCancelled and LogOnSuccess views, or have those scenarios redirect to existing actions.
-
-Check out the [wiki](http://wiki.github.com/TroyGoode/EngageNet/) for more details.
