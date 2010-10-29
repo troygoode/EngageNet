@@ -36,7 +36,7 @@ namespace EngageNet.Api
 			get { return apiKey; }
 		}
 
-		#region IRPXApiWrapper Members
+		#region IApiWrapper Members
 
 		public XElement Call(string methodName, IDictionary<string, string> queryData)
 		{

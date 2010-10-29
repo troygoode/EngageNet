@@ -1,6 +1,5 @@
 ﻿using EngageNet.Api;
 using NUnit.Framework;
-using RPXLib;
 
 namespace EngageNet.Tests
 {
@@ -9,7 +8,7 @@ namespace EngageNet.Tests
 		[Test]
 		public void ConstructorAppendsDirectorySeperatorIfNotExists()
 		{
-			var settings = new EngageNetSettings("http://abc.com", "");
+			var settings = new EngageNetSettings("http://abc.com", "", null);
 			var api = new ApiWrapper(settings);
 			Assert.AreEqual("http://abc.com/", api.BaseUrl);
 		}
@@ -17,7 +16,7 @@ namespace EngageNet.Tests
 		[Test]
 		public void ConstructorSetsApiKey()
 		{
-			var settings = new EngageNetSettings("http://abc.com/", "apikey");
+			var settings = new EngageNetSettings("http://abc.com/", "apikey", null);
 			var api = new ApiWrapper(settings);
 			Assert.AreEqual("apikey", api.ApiKey);
 		}
@@ -25,7 +24,7 @@ namespace EngageNet.Tests
 		[Test]
 		public void ConstructorSetsBaseUrl()
 		{
-			var settings = new EngageNetSettings("http://abc.com/", "");
+			var settings = new EngageNetSettings("http://abc.com/", "", null);
 			var api = new ApiWrapper(settings);
 			Assert.AreEqual("http://abc.com/", api.BaseUrl);
 		}

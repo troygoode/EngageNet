@@ -1,8 +1,7 @@
 using System;
 using System.Runtime.Serialization;
-using EngageNet;
 
-namespace RPXLib.Exceptions
+namespace EngageNet.Exceptions
 {
 	[Serializable]
 	public abstract class ResponseException : EngageException

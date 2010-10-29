@@ -9,8 +9,8 @@ namespace EngageNet
 	{
 		private readonly IApiWrapper apiWrapper;
 
-		public EngageNet(string apiBaseUrl, string apiKey)
-			: this(new EngageNetSettings(apiBaseUrl, apiKey))
+		public EngageNet(string apiKey)
+			: this(new EngageNetSettings(apiKey))
 		{
 		}
 
@@ -24,7 +24,7 @@ namespace EngageNet
 			this.apiWrapper = apiWrapper;
 		}
 
-		#region IRPXService Members
+		#region IEngageNet Members
 
 		public GetContactsResponse GetContacts(string authenticationDetailsIdentifier)
 		{

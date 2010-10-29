@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RPXLib.Exceptions
+namespace EngageNet.Exceptions
 {
 	[Serializable]
 	public class ServiceTemporarilyUnavailableException : ResponseException

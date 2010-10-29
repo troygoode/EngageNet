@@ -1,8 +1,7 @@
 ﻿using System.IO;
 using EngageNet.Api;
+using EngageNet.Exceptions;
 using NUnit.Framework;
-using RPXLib;
-using RPXLib.Exceptions;
 
 namespace EngageNet.Tests
 {

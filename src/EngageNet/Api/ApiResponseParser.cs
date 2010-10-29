@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using System.Xml.Linq;
-using RPXLib.Exceptions;
+using EngageNet.Exceptions;
 
 namespace EngageNet.Api
 {
