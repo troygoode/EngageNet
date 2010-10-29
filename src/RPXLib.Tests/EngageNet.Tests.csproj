@@ -8,8 +8,8 @@
     <ProjectGuid>{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RPXLib.Tests</RootNamespace>
-    <AssemblyName>RPXLib.Tests</AssemblyName>
+    <RootNamespace>EngageNet.Tests</RootNamespace>
+    <AssemblyName>EngageNet.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -74,25 +74,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RPXServiceGetUserDataTests.cs" />
-    <Compile Include="Data\RPXContactEmailAddressTests.cs" />
-    <Compile Include="Data\RPXContactTests.cs" />
-    <Compile Include="RPXServiceActivityTests.cs" />
-    <Compile Include="RPXServiceStatusTests.cs" />
-    <Compile Include="RPXServiceContactsTests.cs" />
-    <Compile Include="RPXServiceGetAuthenticationDetailsTests.cs" />
-    <Compile Include="RPXServiceMappingTests.cs" />
-    <Compile Include="Data\RPXAddressTests.cs" />
+    <Compile Include="ApiResponseParserTests.cs" />
+    <Compile Include="ApiWrapperTests.cs" />
+    <Compile Include="Data\ContactEmailAddressTests.cs" />
+    <Compile Include="Data\ContactTests.cs" />
+    <Compile Include="Data\AddressTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RPXApiResponseParserTests.cs" />
-    <Compile Include="RPXApiWrapperTests.cs" />
-    <Compile Include="Data\RPXAuthenticationDetailsTests.cs" />
-    <Compile Include="Data\RPXNameTests.cs" />
+    <Compile Include="Data\AuthenticationDetailsTests.cs" />
+    <Compile Include="Data\NameTests.cs" />
+    <Compile Include="ServiceActivityTests.cs" />
+    <Compile Include="ServiceContactsTests.cs" />
+    <Compile Include="ServiceGetAuthenticationDetailsTests.cs" />
+    <Compile Include="ServiceGetUserDataTests.cs" />
+    <Compile Include="ServiceMappingTests.cs" />
+    <Compile Include="ServiceStatusTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RPXLib\RPXLib.csproj">
+    <ProjectReference Include="..\RPXLib\EngageNet.csproj">
       <Project>{FFEC4881-58C8-43BC-B0C3-D97114725C70}</Project>
-      <Name>RPXLib</Name>
+      <Name>EngageNet</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

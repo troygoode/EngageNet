@@ -8,8 +8,8 @@
     <ProjectGuid>{FFEC4881-58C8-43BC-B0C3-D97114725C70}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>RPXLib</RootNamespace>
-    <AssemblyName>RPXLib</AssemblyName>
+    <RootNamespace>EngageNet</RootNamespace>
+    <AssemblyName>EngageNet</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -68,46 +68,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\RPXActivity.cs" />
-    <Compile Include="Data\RPXActivityMedia.cs" />
-    <Compile Include="Data\RPXActivityMediaFlash.cs" />
-    <Compile Include="Data\RPXActivityMediaImage.cs" />
-    <Compile Include="Data\RPXActivityMediaMp3.cs" />
-    <Compile Include="Data\RPXActivityMediaVideo.cs" />
-    <Compile Include="Data\RPXAllIdentifiers.cs" />
-    <Compile Include="Data\RPXContact.cs" />
-    <Compile Include="Data\RPXContactEmailAddress.cs" />
-    <Compile Include="Data\RPXGetContactsResponse.cs" />
-    <Compile Include="Exceptions\RPXTokenUrlMismatchException.cs" />
-    <Compile Include="RPXException.cs" />
-    <Compile Include="Data\RPXAddress.cs" />
-    <Compile Include="Data\RPXAuthenticationDetails.cs" />
-    <Compile Include="Data\RPXElementBase.cs" />
-    <Compile Include="Data\RPXName.cs" />
-    <Compile Include="Exceptions\RPXResponseException.cs" />
-    <Compile Include="Exceptions\RPXMappingExistsException.cs" />
-    <Compile Include="Exceptions\RPXAccountUpgradeNeededException.cs" />
-    <Compile Include="Exceptions\RPXApplicationConfigurationException.cs" />
-    <Compile Include="Exceptions\RPXAuthenticationErrorException.cs" />
-    <Compile Include="Exceptions\RPXCredentialsMissingException.cs" />
-    <Compile Include="Exceptions\RPXCredentialsRevokedException.cs" />
-    <Compile Include="Exceptions\RPXDataNotFoundException.cs" />
-    <Compile Include="Exceptions\RPXFacebookErrorException.cs" />
-    <Compile Include="Exceptions\RPXInvalidParameterException.cs" />
-    <Compile Include="Exceptions\RPXMissingParameterException.cs" />
-    <Compile Include="Exceptions\RPXPreviouslyOperationalProviderException.cs" />
-    <Compile Include="Exceptions\RPXServiceTemporarilyUnavailableException.cs" />
-    <Compile Include="Exceptions\RPXUnknownResponseException.cs" />
-    <Compile Include="Exceptions\RPXUnsupportedProviderFeatureException.cs" />
-    <Compile Include="Interfaces\IRPXApiSettings.cs" />
-    <Compile Include="Interfaces\IRPXApiWrapper.cs" />
-    <Compile Include="Interfaces\IRPXService.cs" />
+    <Compile Include="Api\ApiResponseParser.cs" />
+    <Compile Include="Api\ApiWrapper.cs" />
+    <Compile Include="Api\IApiWrapper.cs" />
+    <Compile Include="Data\Activity.cs" />
+    <Compile Include="Data\ActivityMedia.cs" />
+    <Compile Include="Data\ActivityMediaFlash.cs" />
+    <Compile Include="Data\ActivityMediaImage.cs" />
+    <Compile Include="Data\ActivityMediaMp3.cs" />
+    <Compile Include="Data\ActivityMediaVideo.cs" />
+    <Compile Include="Data\AllIdentifiers.cs" />
+    <Compile Include="Data\Contact.cs" />
+    <Compile Include="Data\ContactEmailAddress.cs" />
+    <Compile Include="Data\GetContactsResponse.cs" />
+    <Compile Include="Exceptions\TokenUrlMismatchException.cs" />
+    <Compile Include="EngageException.cs" />
+    <Compile Include="Data\Address.cs" />
+    <Compile Include="Data\AuthenticationDetails.cs" />
+    <Compile Include="Data\ElementBase.cs" />
+    <Compile Include="Data\Name.cs" />
+    <Compile Include="Exceptions\ResponseException.cs" />
+    <Compile Include="Exceptions\MappingExistsException.cs" />
+    <Compile Include="Exceptions\AccountUpgradeNeededException.cs" />
+    <Compile Include="Exceptions\ApplicationConfigurationException.cs" />
+    <Compile Include="Exceptions\AuthenticationErrorException.cs" />
+    <Compile Include="Exceptions\CredentialsMissingException.cs" />
+    <Compile Include="Exceptions\CredentialsRevokedException.cs" />
+    <Compile Include="Exceptions\DataNotFoundException.cs" />
+    <Compile Include="Exceptions\FacebookErrorException.cs" />
+    <Compile Include="Exceptions\InvalidParameterException.cs" />
+    <Compile Include="Exceptions\MissingParameterException.cs" />
+    <Compile Include="Exceptions\PreviouslyOperationalProviderException.cs" />
+    <Compile Include="Exceptions\ServiceTemporarilyUnavailableException.cs" />
+    <Compile Include="Exceptions\UnknownResponseException.cs" />
+    <Compile Include="Exceptions\UnsupportedProviderFeatureException.cs" />
+    <Compile Include="IEngageNet.cs" />
+    <Compile Include="IEngageNetSettings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RPXApiSettings.cs" />
-    <Compile Include="RPXApiWrapper.cs" />
-    <Compile Include="RPXApiResponseParser.cs" />
-    <Compile Include="Data\RPXIdentifiers.cs" />
-    <Compile Include="RPXService.cs" />
+    <Compile Include="EngageNetSettings.cs" />
+    <Compile Include="Data\Identifiers.cs" />
+    <Compile Include="EngageNet.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="EngageNet.cd" />
@@ -130,6 +130,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -2,9 +2,8 @@ using System;
 using System.Net;
 using System.Web.Mvc;
 using System.Web.Security;
-using RPXLib;
-using RPXLib.Data;
-using RPXLib.Interfaces;
+using EngageNet;
+using EngageNet.Data;
 
 namespace RPX.Web.MVC.Controllers
 {
@@ -15,7 +14,7 @@ namespace RPX.Web.MVC.Controllers
         /// Check the global.asax.cs file for example routing
         /// </summary>
         
-        private readonly IRPXService rpxService;
+        private readonly IEngageNet _engageNet;
 
         public RPXAuthenticationController()
         {
@@ -30,8 +29,8 @@ namespace RPX.Web.MVC.Controllers
             //if you need to access the service via a web proxy set the proxy details here
             const IWebProxy webProxy = null;
 
-            var settings = new RPXApiSettings(baseUrl, apiKey, webProxy);
-            rpxService = new RPXService(settings);
+            var settings = new EngageNetSettings(baseUrl, apiKey, webProxy);
+            _engageNet = new EngageNet.EngageNet(settings);
         }
 
         /// <summary>
@@ -41,9 +40,9 @@ namespace RPX.Web.MVC.Controllers
         /// 
         /// It is for your own good!
         /// </summary>
-        public RPXAuthenticationController(IRPXService rpxService)
+        public RPXAuthenticationController(IEngageNet _engageNet)
         {
-            this.rpxService = rpxService;
+            this._engageNet = _engageNet;
         }
 
         public ActionResult HandleResponse(string token)
@@ -55,7 +54,7 @@ namespace RPX.Web.MVC.Controllers
 
             //This service call will throw an exception if it fails. 
             //You may want to catch it explicitly.
-            var authenticationDetails = rpxService.GetAuthenticationDetails(token, true);
+            var authenticationDetails = _engageNet.GetAuthenticationDetails(token, true);
             TempData["id"] = authenticationDetails.Identifier;
 
             SignIn(GetLocalKey(authenticationDetails), true);
@@ -79,7 +78,7 @@ namespace RPX.Web.MVC.Controllers
         /// It is possible that you may have already mapped this user, which you can 
         /// confirm by checking the LocalKey property of the AuthenticationDetails.
         /// </summary>
-        private static string GetLocalKey(RPXAuthenticationDetails authenticationDetails)
+        private static string GetLocalKey(AuthenticationDetails authenticationDetails)
         {
             if (string.IsNullOrEmpty(authenticationDetails.LocalKey))
             {

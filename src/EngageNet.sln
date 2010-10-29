@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet", "RPXLib\EngageN
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet.Tests", "RPXLib.Tests\EngageNet.Tests.csproj", "{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet.SampleWebsite", "RPX.Web.MVC\EngageNet.SampleWebsite.csproj", "{7ADF6598-8CC2-4149-A2ED-570100069C3A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet.SampleWebsiteOld", "RPX.Web.MVC\EngageNet.SampleWebsiteOld.csproj", "{7ADF6598-8CC2-4149-A2ED-570100069C3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
