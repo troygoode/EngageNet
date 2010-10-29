@@ -5,22 +5,22 @@ using RPXLib.Interfaces;
 
 namespace RPXLib.Tests
 {
-    [TestFixture]
-    public class RPXServiceActivityTests
-    {
-        #region Setup/Teardown
+	[TestFixture]
+	public class RPXServiceActivityTests
+	{
+		#region Setup/Teardown
 
-        [SetUp]
-        public void TestSetup()
-        {
-            mockApiWrapper = MockRepository.GenerateMock<IRPXApiWrapper>();
-            rpxService = new RPXService(mockApiWrapper);
-        }
+		[SetUp]
+		public void TestSetup()
+		{
+			mockApiWrapper = MockRepository.GenerateMock<IRPXApiWrapper>();
+			rpxService = new RPXService(mockApiWrapper);
+		}
 
-        #endregion
+		#endregion
 
-        private RPXService rpxService;
-        private IRPXApiWrapper mockApiWrapper;
+		private RPXService rpxService;
+		private IRPXApiWrapper mockApiWrapper;
 
 		//[Test]
 		//public void AddActivity_CallsApiWrapperWithCorrectDetails()
@@ -38,10 +38,10 @@ namespace RPXLib.Tests
 		//}
 
 		[Test]
-		[ExpectedException(typeof(NotImplementedException))]
+		[ExpectedException(typeof (NotImplementedException))]
 		public void AddActivity_ThrowsNotImplementedException()
 		{
 			rpxService.AddActivity("", null);
 		}
-    }
+	}
 }

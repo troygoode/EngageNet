@@ -9,9 +9,9 @@ namespace RPXLib.Data
 		{
 			var allIdentifiers = new RPXAllIdentifiers();
 
-			foreach(var setofIdentifiers in xElement.Element("mappings").Elements("mapping"))
+			foreach (var setofIdentifiers in xElement.Element("mappings").Elements("mapping"))
 				allIdentifiers.Add(setofIdentifiers.Element("primaryKey").Value, RPXIdentifiers.FromXElement(setofIdentifiers));
-			
+
 			return allIdentifiers;
 		}
 	}

@@ -11,9 +11,9 @@ namespace RPXLib.Tests.Data
 		[Test]
 		public void GetFromXElement_ParsesContactCorrectly()
 		{
-			var xelement = new XElement("entry", 
-					new XElement("displayName", "Some User"),
-					new XElement("emails")
+			var xelement = new XElement("entry",
+			                            new XElement("displayName", "Some User"),
+			                            new XElement("emails")
 				);
 			var contact = RPXContact.FromXElement(xelement);
 
@@ -26,7 +26,7 @@ namespace RPXLib.Tests.Data
 		public void GetFromXElement_ParsesContactCorrectlyWithoutDisplayNameElement()
 		{
 			var xelement = new XElement("entry",
-					new XElement("emails")
+			                            new XElement("emails")
 				);
 			var contact = RPXContact.FromXElement(xelement);
 
@@ -39,7 +39,7 @@ namespace RPXLib.Tests.Data
 		public void GetFromXElement_ParsesContactCorrectlyWithoutEmailsElement()
 		{
 			var xelement = new XElement("entry",
-					new XElement("displayName", "Some User")
+			                            new XElement("displayName", "Some User")
 				);
 			var contact = RPXContact.FromXElement(xelement);
 

@@ -13,12 +13,12 @@ namespace RPXLib.Data
 		{
 			var contacts = new RPXGetContactsResponse
 			               	{
-								ItemsPerPage = int.Parse(xElement.Element("response").Element("itemsPerPage").Value),
-								TotalResults = int.Parse(xElement.Element("response").Element("totalResults").Value),
-								StartIndex = int.Parse(xElement.Element("response").Element("startIndex").Value)
+			               		ItemsPerPage = int.Parse(xElement.Element("response").Element("itemsPerPage").Value),
+			               		TotalResults = int.Parse(xElement.Element("response").Element("totalResults").Value),
+			               		StartIndex = int.Parse(xElement.Element("response").Element("startIndex").Value)
 			               	};
 
-			foreach(var contact in xElement.Element("response").Elements("entry"))
+			foreach (var contact in xElement.Element("response").Elements("entry"))
 				contacts.Add(RPXContact.FromXElement(contact));
 
 			return contacts;

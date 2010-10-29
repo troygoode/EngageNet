@@ -110,7 +110,7 @@
     <Compile Include="RPXService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="RPXLib.cd" />
+    <None Include="EngageNet.cd" />
     <None Include="Data\Data.cd" />
   </ItemGroup>
   <ItemGroup>

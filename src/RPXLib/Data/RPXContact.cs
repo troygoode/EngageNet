@@ -14,15 +14,15 @@ namespace RPXLib.Data
 			return new RPXContact
 			       	{
 			       		DisplayName = xElement.Element("displayName") == null
-			       			? null
-			       			: xElement.Element("displayName").Value,
-						EmailAddresses = xElement.Element("emails") == null
-							? new List<RPXContactEmailAddress>()
-							: xElement
-			       				.Element("emails")
-			       				.Elements("email")
-			       				.Select(email => RPXContactEmailAddress.FromXElement(email))
-			       				.ToList()
+			       		              	? null
+			       		              	: xElement.Element("displayName").Value,
+			       		EmailAddresses = xElement.Element("emails") == null
+			       		                 	? new List<RPXContactEmailAddress>()
+			       		                 	: xElement
+			       		                 	  	.Element("emails")
+			       		                 	  	.Elements("email")
+			       		                 	  	.Select(email => RPXContactEmailAddress.FromXElement(email))
+			       		                 	  	.ToList()
 			       	};
 		}
 	}

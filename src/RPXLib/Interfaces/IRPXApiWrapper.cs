@@ -3,8 +3,8 @@ using System.Xml.Linq;
 
 namespace RPXLib.Interfaces
 {
-    public interface IRPXApiWrapper
-    {
-        XElement Call(string methodName, IDictionary<string, string> queryData);
-    }
+	public interface IRPXApiWrapper
+	{
+		XElement Call(string methodName, IDictionary<string, string> queryData);
+	}
 }

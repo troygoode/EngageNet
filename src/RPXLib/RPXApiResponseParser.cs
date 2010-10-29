@@ -11,7 +11,7 @@ namespace RPXLib
 			if (responseReader == null)
 				throw new RPXException("No response to parse");
 
-		    var doc = XDocument.Load(responseReader, LoadOptions.None);
+			var doc = XDocument.Load(responseReader, LoadOptions.None);
 			if (doc.Root.Attribute("stat").Value == "ok")
 				return doc.Root;
 
@@ -29,7 +29,7 @@ namespace RPXLib
 				case 2:
 					throw new RPXDataNotFoundException(errCode, errMsg);
 				case 3:
-					if(errMsg.ToLowerInvariant().StartsWith("token url mismatch"))
+					if (errMsg.ToLowerInvariant().StartsWith("token url mismatch"))
 						throw new RPXTokenUrlMismatchException(errCode, errMsg);
 					throw new RPXAuthenticationErrorException(errCode, errMsg);
 				case 4:

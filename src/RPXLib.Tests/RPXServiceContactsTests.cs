@@ -37,10 +37,10 @@ namespace RPXLib.Tests
 
 			mockApiWrapper.Expect(
 				w => w.Call(
-				     	Arg<string>.Matches(s => s.Equals("get_contacts")),
-				     	Arg<IDictionary<string, string>>.Matches(
-				     		d => d["identifier"].Equals("id")
-				     		))).Return(emptyResponse);
+					Arg<string>.Matches(s => s.Equals("get_contacts")),
+					Arg<IDictionary<string, string>>.Matches(
+						d => d["identifier"].Equals("id")
+						))).Return(emptyResponse);
 
 			rpxService.GetContacts("id");
 
@@ -48,14 +48,14 @@ namespace RPXLib.Tests
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
+		[ExpectedException(typeof (ArgumentNullException))]
 		public void GetContacts_ThrowsOnEmptyIdentifier()
 		{
 			rpxService.GetContacts("");
 		}
 
 		[Test]
-		[ExpectedException(typeof(ArgumentNullException))]
+		[ExpectedException(typeof (ArgumentNullException))]
 		public void GetContacts_ThrowsOnNullIdentifier()
 		{
 			rpxService.GetContacts(null);
