@@ -18,3 +18,5 @@ LastBuild.log
 .svn
 _ReSharper*
 .DS_Store
+packaging/EngageNet/*.nupkg
+packaging/EngageNet/lib/*

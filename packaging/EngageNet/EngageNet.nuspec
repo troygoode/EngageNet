@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>EngageNet</id>
+    <version>1.0.0.0</version>
+    <authors>
+      <author>Troy Goode</author>
+      <author>Steven Burman</author>
+    </authors>
+    <description><![CDATA[A wrapper library for the JanRain Engage (formerly RPX) authentication service.]]></description>
+    <language>en-US</language>
+    <homepage>http://github.com/TroyGoode/RpxLib</homepage>
+  </metadata>
+</package>
