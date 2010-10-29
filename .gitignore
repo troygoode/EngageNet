@@ -10,3 +10,4 @@ packaging/EngageNet/*.nupkg
 packaging/EngageNet-Mvc/*.nupkg
 packaging/EngageNet/lib/*
 packaging/EngageNet-Mvc/lib/*
+packaging/EngageNet-Mvc/content/*
