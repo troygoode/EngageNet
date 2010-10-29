@@ -9,6 +9,6 @@
     </authors>
     <description><![CDATA[A wrapper library for the JanRain Engage (formerly RPX) authentication service.]]></description>
     <language>en-US</language>
-    <homepage>http://github.com/TroyGoode/RpxLib</homepage>
+    <homepage>http://github.com/TroyGoode/EngageNet</homepage>
   </metadata>
 </package>
