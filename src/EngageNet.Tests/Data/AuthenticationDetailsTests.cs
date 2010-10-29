@@ -11,115 +11,115 @@ namespace EngageNet.Tests.Data
 		[SetUp]
 		public void TestSetup()
 		{
-			details = new AuthenticationDetails();
+			_details = new AuthenticationDetails();
 		}
 
 		#endregion
 
-		private AuthenticationDetails details;
+		private AuthenticationDetails _details;
 
 		[Test]
 		public void CanPopulateBirthdayProperty()
 		{
-			Assert.IsNull(details.Birthday);
-			details.AddProperty("birthday", "test");
-			Assert.AreEqual("test", details.Birthday);
+			Assert.IsNull(_details.Birthday);
+			_details.AddProperty("birthday", "test");
+			Assert.AreEqual("test", _details.Birthday);
 		}
 
 		[Test]
 		public void CanPopulateDisplayNameProperty()
 		{
-			Assert.IsNull(details.DisplayName);
-			details.AddProperty("displayName", "test");
-			Assert.AreEqual("test", details.DisplayName);
+			Assert.IsNull(_details.DisplayName);
+			_details.AddProperty("displayName", "test");
+			Assert.AreEqual("test", _details.DisplayName);
 		}
 
 		[Test]
 		public void CanPopulateEmailProperty()
 		{
-			Assert.IsNull(details.Email);
-			details.AddProperty("email", "test");
-			Assert.AreEqual("test", details.Email);
+			Assert.IsNull(_details.Email);
+			_details.AddProperty("email", "test");
+			Assert.AreEqual("test", _details.Email);
 		}
 
 		[Test]
 		public void CanPopulateGenderProperty()
 		{
-			Assert.IsNull(details.Gender);
-			details.AddProperty("gender", "test");
-			Assert.AreEqual("test", details.Gender);
+			Assert.IsNull(_details.Gender);
+			_details.AddProperty("gender", "test");
+			Assert.AreEqual("test", _details.Gender);
 		}
 
 		[Test]
 		public void CanPopulateIdentifierProperty()
 		{
-			Assert.IsNull(details.Identifier);
-			details.AddProperty("identifier", "test");
-			Assert.AreEqual("test", details.Identifier);
+			Assert.IsNull(_details.Identifier);
+			_details.AddProperty("identifier", "test");
+			Assert.AreEqual("test", _details.Identifier);
 		}
 
 		[Test]
 		public void CanPopulateLocalKeyProperty()
 		{
-			Assert.IsNull(details.LocalKey);
-			details.AddProperty("primaryKey", "test");
-			Assert.AreEqual("test", details.LocalKey);
+			Assert.IsNull(_details.LocalKey);
+			_details.AddProperty("primaryKey", "test");
+			Assert.AreEqual("test", _details.LocalKey);
 		}
 
 		[Test]
 		public void CanPopulatePhoneNumberProperty()
 		{
-			Assert.IsNull(details.PhoneNumber);
-			details.AddProperty("phoneNumber", "test");
-			Assert.AreEqual("test", details.PhoneNumber);
+			Assert.IsNull(_details.PhoneNumber);
+			_details.AddProperty("phoneNumber", "test");
+			Assert.AreEqual("test", _details.PhoneNumber);
 		}
 
 		[Test]
 		public void CanPopulatePhotoUrlProperty()
 		{
-			Assert.IsNull(details.PhotoUrl);
-			details.AddProperty("photo", "test");
-			Assert.AreEqual("test", details.PhotoUrl);
+			Assert.IsNull(_details.PhotoUrl);
+			_details.AddProperty("photo", "test");
+			Assert.AreEqual("test", _details.PhotoUrl);
 		}
 
 		[Test]
 		public void CanPopulatePreferredUsernameProperty()
 		{
-			Assert.IsNull(details.PreferredUsername);
-			details.AddProperty("preferredUsername", "dn");
-			Assert.AreEqual("dn", details.PreferredUsername);
+			Assert.IsNull(_details.PreferredUsername);
+			_details.AddProperty("preferredUsername", "dn");
+			Assert.AreEqual("dn", _details.PreferredUsername);
 		}
 
 		[Test]
 		public void CanPopulateProviderNameProperty()
 		{
-			Assert.IsNull(details.ProviderName);
-			details.AddProperty("providerName", "Facebook");
-			Assert.AreEqual("Facebook", details.ProviderName);
+			Assert.IsNull(_details.ProviderName);
+			_details.AddProperty("providerName", "Facebook");
+			Assert.AreEqual("Facebook", _details.ProviderName);
 		}
 
 		[Test]
 		public void CanPopulateUrlProperty()
 		{
-			Assert.IsNull(details.Url);
-			details.AddProperty("url", "test");
-			Assert.AreEqual("test", details.Url);
+			Assert.IsNull(_details.Url);
+			_details.AddProperty("url", "test");
+			Assert.AreEqual("test", _details.Url);
 		}
 
 		[Test]
 		public void CanPopulateUtcOffsetProperty()
 		{
-			Assert.IsNull(details.UtcOffset);
-			details.AddProperty("utcOffset", "test");
-			Assert.AreEqual("test", details.UtcOffset);
+			Assert.IsNull(_details.UtcOffset);
+			_details.AddProperty("utcOffset", "test");
+			Assert.AreEqual("test", _details.UtcOffset);
 		}
 
 		[Test]
 		public void CanPopulateVerifiedEmailProperty()
 		{
-			Assert.IsNull(details.VerifiedEmail);
-			details.AddProperty("verifiedEmail", "test");
-			Assert.AreEqual("test", details.VerifiedEmail);
+			Assert.IsNull(_details.VerifiedEmail);
+			_details.AddProperty("verifiedEmail", "test");
+			Assert.AreEqual("test", _details.VerifiedEmail);
 		}
 	}
 }

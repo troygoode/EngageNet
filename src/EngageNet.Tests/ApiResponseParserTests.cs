@@ -12,8 +12,7 @@ namespace EngageNet.Tests
 		[ExpectedException(typeof (AuthenticationErrorException), ExpectedMessage = "Authentication error")]
 		public void HandlesAuthenticationErrorErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Authentication error' code='3'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Authentication error' code='3'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -21,8 +20,7 @@ namespace EngageNet.Tests
 		[ExpectedException(typeof (DataNotFoundException), ExpectedMessage = "Data not found")]
 		public void HandlesDataNotFoundErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Data not found' code='2'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Data not found' code='2'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -31,8 +29,7 @@ namespace EngageNet.Tests
 			ExpectedMessage = "Error interacting with a previously operational provider")]
 		public void HandlesErrorInteractingWithAPreviouslyOperationProviderErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Error interacting with a previously operational provider' code='6'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Error interacting with a previously operational provider' code='6'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -40,8 +37,7 @@ namespace EngageNet.Tests
 		[ExpectedException(typeof (FacebookErrorException), ExpectedMessage = "Facebook Error")]
 		public void HandlesFacebookErrorErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Facebook Error' code='4'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Facebook Error' code='4'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -49,8 +45,7 @@ namespace EngageNet.Tests
 		[ExpectedException(typeof (InvalidParameterException), ExpectedMessage = "Invalid parameter")]
 		public void HandlesInvalidParameterErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Invalid parameter' code='1'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Invalid parameter' code='1'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -58,8 +53,7 @@ namespace EngageNet.Tests
 		[ExpectedException(typeof (MappingExistsException), ExpectedMessage = "Mapping exists")]
 		public void HandlesMappingExistsErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Mapping exists' code='5'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Mapping exists' code='5'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -67,8 +61,7 @@ namespace EngageNet.Tests
 		[ExpectedException(typeof (MissingParameterException), ExpectedMessage = "Missing parameter")]
 		public void HandlesMissingParameterErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Missing parameter' code='0'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Missing parameter' code='0'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -77,18 +70,16 @@ namespace EngageNet.Tests
 			ExpectedMessage = "Missing third-party credentials for this identifier")]
 		public void HandlesMissingThirdPartyCredentialsForThisIdentifierErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Missing third-party credentials for this identifier' code='8'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Missing third-party credentials for this identifier' code='8'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
 		[Test]
 		[ExpectedException(typeof (AccountUpgradeNeededException),
 			ExpectedMessage = "RPX account upgrade needed to access this API")]
-		public void HandlesRPXAccountUpgradeNeededToAccessThisAPIErrorCodeByThrowingException()
+		public void HandlesRpxAccountUpgradeNeededToAccessThisApiErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='RPX account upgrade needed to access this API' code='7'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='RPX account upgrade needed to access this API' code='7'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -97,8 +88,7 @@ namespace EngageNet.Tests
 			ExpectedMessage = "Service Temporarily Unavailable")]
 		public void HandlesServiceTemporarilyUnavailableErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Service Temporarily Unavailable' code='-1'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Service Temporarily Unavailable' code='-1'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -107,8 +97,7 @@ namespace EngageNet.Tests
 			ExpectedMessage = "The provider or identifier does not support this feature")]
 		public void HandlesTheProviderOrIdentifierDoesNotSupportThisFeatureErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='The provider or identifier does not support this feature' code='11'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='The provider or identifier does not support this feature' code='11'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -117,8 +106,7 @@ namespace EngageNet.Tests
 			ExpectedMessage = "Third-party credentials have been revoked")]
 		public void HandlesThirdPartyCredentialsHaveBeenRevokedErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Third-party credentials have been revoked' code='9'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Third-party credentials have been revoked' code='9'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -127,8 +115,7 @@ namespace EngageNet.Tests
 			ExpectedMessage = "Token URL mismatch: (your tokenUrl parameter) (original token URL)")]
 		public void HandlesTokenUrlMismatchErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Token URL mismatch: (your tokenUrl parameter) (original token URL)' code='3'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Token URL mismatch: (your tokenUrl parameter) (original token URL)' code='3'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -136,8 +123,7 @@ namespace EngageNet.Tests
 		[ExpectedException(typeof (UnknownResponseException), ExpectedMessage = "Lorem Ipsum Dolor")]
 		public void HandlesUnknownErrorCodesByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Lorem Ipsum Dolor' code='-999'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Lorem Ipsum Dolor' code='-999'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 
@@ -146,8 +132,7 @@ namespace EngageNet.Tests
 			ExpectedMessage = "Your application is not properly configured")]
 		public void HandlesYourApplicationIsNotProperlyConfiguredErrorCodeByThrowingException()
 		{
-			var errResponse =
-				"<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Your application is not properly configured' code='10'/></rsp>";
+			const string errResponse = "<?xml version='1.0' encoding='UTF-8'?><rsp stat='fail'><err msg='Your application is not properly configured' code='10'/></rsp>";
 			ApiResponseParser.Parse(errResponse);
 		}
 

@@ -18,7 +18,7 @@ namespace EngageNet.Data
 			               		TotalResults = int.Parse(xElement.Element("response").Element("totalResults").Value),
 			               		StartIndex = int.Parse(xElement.Element("response").Element("startIndex").Value)
 			               	};
-			contacts.AddRange(xElement.Element("response").Elements("entry").Select(contact => Contact.FromXElement(contact)));
+			contacts.AddRange(xElement.Element("response").Elements("entry").Select(Contact.FromXElement));
 			return contacts;
 		}
 	}

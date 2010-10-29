@@ -110,7 +110,6 @@
     <Compile Include="EngageNet.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="EngageNet.cd" />
     <None Include="Data\Data.cd" />
   </ItemGroup>
   <ItemGroup>

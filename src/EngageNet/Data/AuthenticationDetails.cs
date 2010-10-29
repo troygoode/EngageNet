@@ -4,13 +4,7 @@ namespace EngageNet.Data
 {
 	public class AuthenticationDetails : ElementBase
 	{
-		private Address address;
-		private Name name;
-
-		public Address Address
-		{
-			get { return address; }
-		}
+		public Address Address { get; private set; }
 
 		public string Birthday
 		{
@@ -42,10 +36,7 @@ namespace EngageNet.Data
 			get { return GetPropertyValue("primaryKey"); }
 		}
 
-		public Name Name
-		{
-			get { return name; }
-		}
+		public Name Name { get; private set; }
 
 		public string PhoneNumber
 		{
@@ -84,12 +75,12 @@ namespace EngageNet.Data
 
 		private void AssignName(Name name)
 		{
-			this.name = name;
+			Name = name;
 		}
 
 		private void AssignAddress(Address address)
 		{
-			this.address = address;
+			Address = address;
 		}
 
 		public static AuthenticationDetails FromXElement(XElement xElement)
@@ -99,17 +90,17 @@ namespace EngageNet.Data
 			foreach (var element in xElement.Element("profile").Elements())
 			{
 				var elementLocalName = element.Name.LocalName;
-				if (elementLocalName == "name")
+				switch (elementLocalName)
 				{
-					details.AssignName(Name.FromXElement(element));
-				}
-				else if (elementLocalName == "address")
-				{
-					details.AssignAddress(Address.FromXElement(element));
-				}
-				else
-				{
-					details.AddProperty(elementLocalName, element.Value);
+					case "name":
+						details.AssignName(Name.FromXElement(element));
+						break;
+					case "address":
+						details.AssignAddress(Address.FromXElement(element));
+						break;
+					default:
+						details.AddProperty(elementLocalName, element.Value);
+						break;
 				}
 			}
 

@@ -15,21 +15,21 @@ namespace EngageNet.Tests
 		[SetUp]
 		public void TestSetup()
 		{
-			mockApiWrapper = MockRepository.GenerateMock<IApiWrapper>();
-			_engageNet = new EngageNet(mockApiWrapper);
+			_mockApiWrapper = MockRepository.GenerateMock<IApiWrapper>();
+			_engageNet = new EngageNet(_mockApiWrapper);
 		}
 
 		#endregion
 
 		private EngageNet _engageNet;
-		private IApiWrapper mockApiWrapper;
+		private IApiWrapper _mockApiWrapper;
 
 		[Test]
 		public void GetUserData_CallsApiWrapperWithCorrectDetails()
 		{
 			var emptyResponse = new XElement("rsp", new XElement("profile"));
 
-			mockApiWrapper.Expect(
+			_mockApiWrapper.Expect(
 				w => w.Call(
 					Arg<string>.Matches(s => s.Equals("get_user_data")),
 					Arg<IDictionary<string, string>>.Matches(
@@ -37,7 +37,7 @@ namespace EngageNet.Tests
 
 			_engageNet.GetUserData("id");
 
-			mockApiWrapper.VerifyAllExpectations();
+			_mockApiWrapper.VerifyAllExpectations();
 		}
 
 		[Test]

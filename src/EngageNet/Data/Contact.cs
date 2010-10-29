@@ -21,7 +21,7 @@ namespace EngageNet.Data
 			       		                 	: xElement
 			       		                 	  	.Element("emails")
 			       		                 	  	.Elements("email")
-			       		                 	  	.Select(email => ContactEmailAddress.FromXElement(email))
+			       		                 	  	.Select(ContactEmailAddress.FromXElement)
 			       		                 	  	.ToList()
 			       	};
 		}

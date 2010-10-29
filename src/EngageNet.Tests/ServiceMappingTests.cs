@@ -15,14 +15,14 @@ namespace EngageNet.Tests
 		[SetUp]
 		public void TestSetup()
 		{
-			mockApiWrapper = MockRepository.GenerateMock<IApiWrapper>();
-			_engageNet = new EngageNet(mockApiWrapper);
+			_mockApiWrapper = MockRepository.GenerateMock<IApiWrapper>();
+			_engageNet = new EngageNet(_mockApiWrapper);
 		}
 
 		#endregion
 
 		private EngageNet _engageNet;
-		private IApiWrapper mockApiWrapper;
+		private IApiWrapper _mockApiWrapper;
 
 		[Test]
 		public void GetAllMappings_CallsApiWrapperWithCorrectDetails()
@@ -36,7 +36,7 @@ namespace EngageNet.Tests
 			                                 	)
 				);
 
-			mockApiWrapper.Expect(
+			_mockApiWrapper.Expect(
 				w => w.Call(
 					Arg<string>.Matches(s => s.Equals("all_mappings")),
 					Arg<IDictionary<string, string>>.Matches(
@@ -44,7 +44,7 @@ namespace EngageNet.Tests
 
 			_engageNet.GetAllMappings();
 
-			mockApiWrapper.VerifyAllExpectations();
+			_mockApiWrapper.VerifyAllExpectations();
 		}
 
 		[Test]
@@ -52,7 +52,7 @@ namespace EngageNet.Tests
 		{
 			var emptyResponse = new XElement("rsp", new XElement("identifiers", new XElement("identifier")));
 
-			mockApiWrapper.Expect(
+			_mockApiWrapper.Expect(
 				w => w.Call(
 					Arg<string>.Matches(s => s.Equals("mappings")),
 					Arg<IDictionary<string, string>>.Matches(
@@ -60,7 +60,7 @@ namespace EngageNet.Tests
 
 			_engageNet.GetAllMappings("key");
 
-			mockApiWrapper.VerifyAllExpectations();
+			_mockApiWrapper.VerifyAllExpectations();
 		}
 
 		[Test]
@@ -80,7 +80,7 @@ namespace EngageNet.Tests
 		[Test]
 		public void MapLocalKey_CallsApiWrapperWithCorrectDetails()
 		{
-			mockApiWrapper.Expect(
+			_mockApiWrapper.Expect(
 				w => w.Call(
 					Arg<string>.Matches(s => s.Equals("map")),
 					Arg<IDictionary<string, string>>.Matches(
@@ -89,7 +89,7 @@ namespace EngageNet.Tests
 
 			_engageNet.MapLocalKey("id", "key");
 
-			mockApiWrapper.VerifyAllExpectations();
+			_mockApiWrapper.VerifyAllExpectations();
 		}
 
 		[Test]
@@ -123,7 +123,7 @@ namespace EngageNet.Tests
 		[Test]
 		public void UnmapLocalKey_CallsApiWrapperWithCorrectDetails()
 		{
-			mockApiWrapper.Expect(
+			_mockApiWrapper.Expect(
 				w => w.Call(
 					Arg<string>.Matches(s => s.Equals("unmap")),
 					Arg<IDictionary<string, string>>.Matches(
@@ -132,7 +132,7 @@ namespace EngageNet.Tests
 
 			_engageNet.UnmapLocalKey("id", "key");
 
-			mockApiWrapper.VerifyAllExpectations();
+			_mockApiWrapper.VerifyAllExpectations();
 		}
 
 		[Test]

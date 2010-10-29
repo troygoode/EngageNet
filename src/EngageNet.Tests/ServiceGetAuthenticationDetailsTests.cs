@@ -15,21 +15,21 @@ namespace EngageNet.Tests
 		[SetUp]
 		public void TestSetup()
 		{
-			mockApiWrapper = MockRepository.GenerateMock<IApiWrapper>();
-			_engageNet = new EngageNet(mockApiWrapper);
+			_mockApiWrapper = MockRepository.GenerateMock<IApiWrapper>();
+			_engageNet = new EngageNet(_mockApiWrapper);
 		}
 
 		#endregion
 
 		private EngageNet _engageNet;
-		private IApiWrapper mockApiWrapper;
+		private IApiWrapper _mockApiWrapper;
 
 		[Test]
 		public void GetAuthenticationDetails_CallsApiWrapperWithCorrectDetails()
 		{
 			var emptyResponse = new XElement("rsp", new XElement("profile"));
 
-			mockApiWrapper.Expect(
+			_mockApiWrapper.Expect(
 				w => w.Call(
 					Arg<string>.Matches(s => s.Equals("auth_info")),
 					Arg<IDictionary<string, string>>.Matches(
@@ -37,7 +37,7 @@ namespace EngageNet.Tests
 
 			_engageNet.GetAuthenticationDetails("token");
 
-			mockApiWrapper.VerifyAllExpectations();
+			_mockApiWrapper.VerifyAllExpectations();
 		}
 
 		[Test]
@@ -45,7 +45,7 @@ namespace EngageNet.Tests
 		{
 			var emptyResponse = new XElement("rsp", new XElement("profile"));
 
-			mockApiWrapper.Expect(
+			_mockApiWrapper.Expect(
 				w => w.Call(
 					Arg<string>.Matches(s => s.Equals("auth_info")),
 					Arg<IDictionary<string, string>>.Matches(
@@ -54,7 +54,7 @@ namespace EngageNet.Tests
 
 			_engageNet.GetAuthenticationDetails("token", true);
 
-			mockApiWrapper.VerifyAllExpectations();
+			_mockApiWrapper.VerifyAllExpectations();
 		}
 
 		[Test]

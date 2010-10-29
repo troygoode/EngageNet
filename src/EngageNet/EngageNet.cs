@@ -7,7 +7,7 @@ namespace EngageNet
 {
 	public class EngageNet : IEngageNet
 	{
-		private readonly IApiWrapper apiWrapper;
+		private readonly IApiWrapper _apiWrapper;
 
 		public EngageNet(string apiKey)
 			: this(new EngageNetSettings(apiKey))
@@ -21,7 +21,7 @@ namespace EngageNet
 
 		public EngageNet(IApiWrapper apiWrapper)
 		{
-			this.apiWrapper = apiWrapper;
+			_apiWrapper = apiWrapper;
 		}
 
 		#region IEngageNet Members
@@ -37,7 +37,7 @@ namespace EngageNet
 			          		{"identifier", authenticationDetailsIdentifier}
 			          	};
 
-			var returnedElement = apiWrapper.Call("get_contacts", req);
+			var returnedElement = _apiWrapper.Call("get_contacts", req);
 			return GetContactsResponse.FromXElement(returnedElement);
 		}
 
@@ -56,14 +56,14 @@ namespace EngageNet
 			          		{"status", status}
 			          	};
 
-			apiWrapper.Call("set_status", req);
+			_apiWrapper.Call("set_status", req);
 		}
 
 		public IDictionary<string, IEnumerable<string>> GetAllMappings()
 		{
 			var req = new Dictionary<string, string>();
 
-			var returnedElement = apiWrapper.Call("all_mappings", req);
+			var returnedElement = _apiWrapper.Call("all_mappings", req);
 			return AllIdentifiers.FromXElement(returnedElement);
 		}
 
@@ -77,7 +77,7 @@ namespace EngageNet
 			          		{"primaryKey", localKey}
 			          	};
 
-			var returnedElement = apiWrapper.Call("mappings", req);
+			var returnedElement = _apiWrapper.Call("mappings", req);
 			return Identifiers.FromXElement(returnedElement);
 		}
 
@@ -105,7 +105,7 @@ namespace EngageNet
 			          		{"primaryKey", localKey}
 			          	};
 
-			apiWrapper.Call("map", req);
+			_apiWrapper.Call("map", req);
 		}
 
 		public void UnmapLocalKey(string authenticationDetailsIdentifier, string localKey)
@@ -123,7 +123,7 @@ namespace EngageNet
 			          		{"primaryKey", localKey}
 			          	};
 
-			apiWrapper.Call("unmap", req);
+			_apiWrapper.Call("unmap", req);
 		}
 
 		public AuthenticationDetails GetUserData(string authenticationDetailsIdentifier)
@@ -137,7 +137,7 @@ namespace EngageNet
 			          		{"identifier", authenticationDetailsIdentifier}
 			          	};
 
-			var returnedElement = apiWrapper.Call("get_user_data", req);
+			var returnedElement = _apiWrapper.Call("get_user_data", req);
 			return AuthenticationDetails.FromXElement(returnedElement);
 		}
 
@@ -154,7 +154,7 @@ namespace EngageNet
 			if (extended)
 				req.Add("extended", "true");
 
-			var returnedElement = apiWrapper.Call("auth_info", req);
+			var returnedElement = _apiWrapper.Call("auth_info", req);
 			return AuthenticationDetails.FromXElement(returnedElement);
 		}
 
@@ -190,7 +190,7 @@ namespace EngageNet
 			          		{"activity", activity.ToString()} //BUG: serailize activity as JSON
 			          	};
 
-			apiWrapper.Call("activity", req);
+			_apiWrapper.Call("activity", req);
 		}
 	}
 }

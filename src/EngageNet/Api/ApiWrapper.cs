@@ -10,30 +10,29 @@ namespace EngageNet.Api
 {
 	public class ApiWrapper : IApiWrapper
 	{
-		private readonly string apiKey;
-		private readonly string baseUrl;
-		private readonly IWebProxy webProxy;
+		private readonly string _apiKey;
+		private readonly string _baseUrl;
+		private readonly IWebProxy _webProxy;
 
-		//this is for my testing purposes only
 		public ApiWrapper(IEngageNetSettings settings)
 		{
 			var url = settings.ApiBaseUrl;
 			if (!url.EndsWith(@"/"))
 				url = url + "/";
 
-			baseUrl = url;
-			apiKey = settings.ApiKey;
-			webProxy = settings.WebProxy;
+			_baseUrl = url;
+			_apiKey = settings.ApiKey;
+			_webProxy = settings.WebProxy;
 		}
 
 		public string BaseUrl
 		{
-			get { return baseUrl; }
+			get { return _baseUrl; }
 		}
 
 		public string ApiKey
 		{
-			get { return apiKey; }
+			get { return _apiKey; }
 		}
 
 		#region IApiWrapper Members
@@ -43,7 +42,7 @@ namespace EngageNet.Api
 			var postData = GeneratePostData(queryData);
 			var requestUri = new Uri(BaseUrl + methodName + "?" + postData);
 
-			var request = BuildApiWebRequest(requestUri, postData);
+			var request = BuildApiWebRequest(requestUri);
 
 			using (var response = (HttpWebResponse) request.GetResponse())
 			using (var dataStream = response.GetResponseStream())
@@ -55,21 +54,23 @@ namespace EngageNet.Api
 
 		#endregion
 
-		private HttpWebRequest BuildApiWebRequest(Uri requestUri, string postData)
+		private HttpWebRequest BuildApiWebRequest(Uri requestUri)
 		{
 			var apiWebRequest = (HttpWebRequest) WebRequest.Create(requestUri);
 
-			if (webProxy != null)
-				apiWebRequest.Proxy = webProxy;
+			if (_webProxy != null)
+				apiWebRequest.Proxy = _webProxy;
 
 			return apiWebRequest;
 		}
 
 		private string GeneratePostData(IDictionary<string, string> partialQuery)
 		{
-			IDictionary<string, string> query = new Dictionary<string, string>(partialQuery);
-			query.Add("format", "xml");
-			query.Add("apiKey", ApiKey);
+			IDictionary<string, string> query = new Dictionary<string, string>(partialQuery)
+			                                    	{
+			                                    		{"format", "xml"},
+			                                    		{"apiKey", ApiKey}
+			                                    	};
 
 			var sb = new StringBuilder();
 			foreach (var e in query)

@@ -11,59 +11,59 @@ namespace EngageNet.Tests.Data
 		[SetUp]
 		public void TestSetup()
 		{
-			name = new Name();
+			_name = new Name();
 		}
 
 		#endregion
 
-		private Name name;
+		private Name _name;
 
 		[Test]
 		public void CanPopulateFamilyNameProperty()
 		{
-			Assert.IsNull(name.FamilyName);
-			name.AddProperty("familyName", "test");
-			Assert.AreEqual("test", name.FamilyName);
+			Assert.IsNull(_name.FamilyName);
+			_name.AddProperty("familyName", "test");
+			Assert.AreEqual("test", _name.FamilyName);
 		}
 
 		[Test]
 		public void CanPopulateFormattedProperty()
 		{
-			Assert.IsNull(name.Formatted);
-			name.AddProperty("formatted", "test");
-			Assert.AreEqual("test", name.Formatted);
+			Assert.IsNull(_name.Formatted);
+			_name.AddProperty("formatted", "test");
+			Assert.AreEqual("test", _name.Formatted);
 		}
 
 		[Test]
 		public void CanPopulateGivenNameProperty()
 		{
-			Assert.IsNull(name.GivenName);
-			name.AddProperty("givenName", "test");
-			Assert.AreEqual("test", name.GivenName);
+			Assert.IsNull(_name.GivenName);
+			_name.AddProperty("givenName", "test");
+			Assert.AreEqual("test", _name.GivenName);
 		}
 
 		[Test]
 		public void CanPopulateHonorificPrefixProperty()
 		{
-			Assert.IsNull(name.HonorificPrefix);
-			name.AddProperty("honorificPrefix", "test");
-			Assert.AreEqual("test", name.HonorificPrefix);
+			Assert.IsNull(_name.HonorificPrefix);
+			_name.AddProperty("honorificPrefix", "test");
+			Assert.AreEqual("test", _name.HonorificPrefix);
 		}
 
 		[Test]
 		public void CanPopulateHonorificSuffixProperty()
 		{
-			Assert.IsNull(name.HonorificSuffix);
-			name.AddProperty("honorificSuffix", "test");
-			Assert.AreEqual("test", name.HonorificSuffix);
+			Assert.IsNull(_name.HonorificSuffix);
+			_name.AddProperty("honorificSuffix", "test");
+			Assert.AreEqual("test", _name.HonorificSuffix);
 		}
 
 		[Test]
 		public void CanPopulateMiddleNameProperty()
 		{
-			Assert.IsNull(name.MiddleName);
-			name.AddProperty("middleName", "test");
-			Assert.AreEqual("test", name.MiddleName);
+			Assert.IsNull(_name.MiddleName);
+			_name.AddProperty("middleName", "test");
+			Assert.AreEqual("test", _name.MiddleName);
 		}
 	}
 }

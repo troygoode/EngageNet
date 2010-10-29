@@ -13,14 +13,14 @@ namespace EngageNet.Tests
 		[SetUp]
 		public void TestSetup()
 		{
-			mockApiWrapper = MockRepository.GenerateMock<IApiWrapper>();
-			_engageNet = new EngageNet(mockApiWrapper);
+			_mockApiWrapper = MockRepository.GenerateMock<IApiWrapper>();
+			_engageNet = new EngageNet(_mockApiWrapper);
 		}
 
 		#endregion
 
 		private EngageNet _engageNet;
-		private IApiWrapper mockApiWrapper;
+		private IApiWrapper _mockApiWrapper;
 
 		//[Test]
 		//public void AddActivity_CallsApiWrapperWithCorrectDetails()

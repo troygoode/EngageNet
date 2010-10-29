@@ -4,9 +4,9 @@ namespace EngageNet
 {
 	public class EngageNetSettings : IEngageNetSettings
 	{
-		private readonly string apiBaseUrl;
-		private readonly string apiKey;
-		private readonly IWebProxy webProxy;
+		private readonly string _apiBaseUrl;
+		private readonly string _apiKey;
+		private readonly IWebProxy _webProxy;
 
 		public EngageNetSettings(string apiKey)
 			: this("https://rpxnow.com/api/v2/", apiKey, null)
@@ -15,26 +15,26 @@ namespace EngageNet
 
 		public EngageNetSettings(string apiBaseUrl, string apiKey, IWebProxy webProxy)
 		{
-			this.apiBaseUrl = apiBaseUrl;
-			this.apiKey = apiKey;
-			this.webProxy = webProxy;
+			_apiBaseUrl = apiBaseUrl;
+			_apiKey = apiKey;
+			_webProxy = webProxy;
 		}
 
 		#region IEngageNetSettings Members
 
 		public IWebProxy WebProxy
 		{
-			get { return webProxy; }
+			get { return _webProxy; }
 		}
 
 		public string ApiKey
 		{
-			get { return apiKey; }
+			get { return _apiKey; }
 		}
 
 		public string ApiBaseUrl
 		{
-			get { return apiBaseUrl; }
+			get { return _apiBaseUrl; }
 		}
 
 		#endregion
