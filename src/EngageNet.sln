@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet", "EngageNet\Enga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet.Tests", "EngageNet.Tests\EngageNet.Tests.csproj", "{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet.SampleWebsiteOld", "EngageNet.SampleWebsiteOld\EngageNet.SampleWebsiteOld.csproj", "{7ADF6598-8CC2-4149-A2ED-570100069C3A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet.SampleWebsiteMvc2", "EngageNet.SampleWebsiteMvc2\EngageNet.SampleWebsiteMvc2.csproj", "{A16F82DF-D61A-4935-9D64-F44D98973270}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EngageNet.Mvc", "EngageNet.Mvc\EngageNet.Mvc.csproj", "{60C8D259-A659-4B11-BAF2-54198F0ECD2C}"
@@ -25,10 +23,6 @@ Global
 		{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF6B42CB-36FB-43FD-B6BE-D9333E4EE3C9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7ADF6598-8CC2-4149-A2ED-570100069C3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7ADF6598-8CC2-4149-A2ED-570100069C3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7ADF6598-8CC2-4149-A2ED-570100069C3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7ADF6598-8CC2-4149-A2ED-570100069C3A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A16F82DF-D61A-4935-9D64-F44D98973270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A16F82DF-D61A-4935-9D64-F44D98973270}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A16F82DF-D61A-4935-9D64-F44D98973270}.Release|Any CPU.ActiveCfg = Release|Any CPU
