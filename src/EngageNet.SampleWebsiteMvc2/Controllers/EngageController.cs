@@ -8,6 +8,11 @@ namespace EngageNet.SampleWebsiteMvc2.Controllers
 	{
 		private readonly IEngageNet _engage;
 
+		public EngageController(IEngageNet engage)
+		{
+			_engage = engage;
+		}
+
 		public EngageController()
 		{
 			//TODO: you should move the setting of the static EngageProvider.Settings to your global.asax or other setup code
