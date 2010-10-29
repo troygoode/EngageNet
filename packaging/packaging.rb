@@ -6,14 +6,14 @@ def copy_files(from, to, filename, extensions)
 	end
 end
 
-task :prepare_package_core do
+task :prepare_package_core => :release do
   output_directory_core = './packaging/EngageNet/lib/40/'
   FileUtils.mkdir_p output_directory_core
 
   copy_files './src/EngageNet/bin/Release/', output_directory_core, 'EngageNet', ['dll', 'pdb', 'xml']
 end
 
-task :prepare_package_mvc do
+task :prepare_package_mvc => :release do
   output_directory_mvc_lib = './packaging/EngageNet-Mvc/lib/40/'
   output_directory_mvc_content_controllers = './packaging/EngageNet-Mvc/content/Controllers/'
   output_directory_mvc_content_views = './packaging/EngageNet-Mvc/content/Views/Engage/'
