@@ -4,11 +4,11 @@ Included is a sample ASP.Net MVC sample web site to demonstrate the integration 
 
 # The Releases
 
-Check the [wiki](http://wiki.github.com/TroyGoode/RpxLib/).
+Check the [wiki](http://wiki.github.com/TroyGoode/EngageNet/).
 
 # The Documentation
 
-Check the [wiki](http://wiki.github.com/TroyGoode/RpxLib/).
+Check the [wiki](http://wiki.github.com/TroyGoode/EngageNet/).
 
 # Please help
 
