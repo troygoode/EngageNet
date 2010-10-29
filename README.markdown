@@ -14,7 +14,7 @@ EngageProvider.ApplicationDomain = "your-site-name.rpxnow.com"; //TODO: set your
 EngageProvider.Settings = new EngageNetSettings("YOUR_API_KEY"); //TODO: set your API key
 </pre>
 
-## Step 3: Create a new controller named "EngageController". Add the following code to the controller:
+## Step 3: Create a new controller named "EngageController". Add the LogOn action:
 <pre>
 public ViewResult LogOn()
 {
@@ -24,35 +24,35 @@ public ViewResult LogOn()
 
 ## Step 4A: Create the LogOn view. If you want to have a link that pops up the Engage overlay for logging in, use this example code:
 <pre>
-<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
-<%@ Import Namespace="EngageNet.Mvc.Html" %>
+&lt;%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage&lt;dynamic&gt;" %&gt;
+&lt;%@ Import Namespace="EngageNet.Mvc.Html" %&gt;
 
-<asp:Content ID="title" ContentPlaceHolderID="TitleContent" runat="server">
+&lt;asp:Content ID="title" ContentPlaceHolderID="TitleContent" runat="server"&gt;
 	Log On
-</asp:Content>
+&lt;/asp:Content&gt;
 
-<asp:Content ID="main" ContentPlaceHolderID="MainContent" runat="server">
-	<h2>Log On</h2>
+&lt;asp:Content ID="main" ContentPlaceHolderID="MainContent" runat="server"&gt;
+	&lt;h2&gt;Log On&lt;/h2&gt;
 
-	<p><%= Html.Engage().LogOnLink("Log On", "ProcessLogOn", "Engage") %></p>
-	<%= Html.Engage().LogOnLinkScript() /*TODO: ideally this script include should be moved to the end of your page*/ %>
-</asp:Content>
+	&lt;p&gt;&lt;%= Html.Engage().LogOnLink("Log On", "ProcessLogOn", "Engage") %&gt;&lt;/p&gt;
+	&lt;%= Html.Engage().LogOnLinkScript() /*TODO: ideally this script include should be moved to the end of your page*/ %&gt;
+&lt;/asp:Content&gt;
 </pre>
 
 ## Step 4B: Create the LogOn view. If you want to have an embedded version of the Engage login, use this example code:
 <pre>
-<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
-<%@ Import Namespace="EngageNet.Mvc.Html" %>
+&lt;%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage&lt;dynamic&gt;" %&gt;
+&lt;%@ Import Namespace="EngageNet.Mvc.Html" %&gt;
 
-<asp:Content ID="title" ContentPlaceHolderID="TitleContent" runat="server">
+&lt;asp:Content ID="title" ContentPlaceHolderID="TitleContent" runat="server"&gt;
 	Log On
-</asp:Content>
+&lt;/asp:Content&gt;
 
-<asp:Content ID="main" ContentPlaceHolderID="MainContent" runat="server">
-	<h2>Log On</h2>
+&lt;asp:Content ID="main" ContentPlaceHolderID="MainContent" runat="server"&gt;
+	&lt;h2&gt;Log On&lt;/h2&gt;
 
-	<%= Html.Engage().InlineWidget("ProcessLogOn", "Engage") %>
-</asp:Content>
+	&lt;%= Html.Engage().InlineWidget("ProcessLogOn", "Engage") %&gt;
+&lt;/asp:Content&gt;
 </pre>
 
 ## Step 5: In the EngageController, you'll need to process the data returned from JanRain's servers. Add the following action and constructors:
