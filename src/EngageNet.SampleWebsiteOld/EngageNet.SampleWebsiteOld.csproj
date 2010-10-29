@@ -106,7 +106,7 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RPXLib\EngageNet.csproj">
+    <ProjectReference Include="..\EngageNet\EngageNet.csproj">
       <Project>{FFEC4881-58C8-43BC-B0C3-D97114725C70}</Project>
       <Name>EngageNet</Name>
     </ProjectReference>
