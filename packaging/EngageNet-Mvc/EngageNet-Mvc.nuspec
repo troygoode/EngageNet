@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package>
   <metadata>
-    <id>EngageNet</id>
+    <id>EngageNet-Mvc</id>
     <version>1.0.0.0</version>
     <authors>Troy Goode, Steven Burman</authors>
     <projectUrl>http://github.com/TroyGoode/EngageNet</projectUrl>
-    <description><![CDATA[A wrapper library for the JanRain Engage (formerly RPX) authentication service.]]></description>
+    <description><![CDATA[Asp.Net MVC helpers and example impelmentation for the EngageNet library.]]></description>
     <language>en-US</language>
+    <dependencies>
+    	<dependency id="EngageNet" minVersion="1.0" />
+    </dependencies>
   </metadata>
 </package>
