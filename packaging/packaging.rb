@@ -43,7 +43,8 @@ task :package => [:package_core, :package_mvc] do
 end
 
 task :clean_packages do
-	FileUtils.rm './packaging/EngageNet/lib/'
-	FileUtils.rm './packaging/EngageNet/EngageNet.1.0.0'
-	FileUtils.rm './packaging/EngageNet-Mvc/lib/'
+	FileUtils.rm_r './packaging/EngageNet/lib/'
+	FileUtils.rm Dir.glob './packaging/EngageNet/*.nupkg'
+	FileUtils.rm_r './packaging/EngageNet-Mvc/lib/'
+	FileUtils.rm Dir.glob './packaging/EngageNet-Mvc/*.nupkg'
 end
