@@ -17,11 +17,19 @@ namespace EngageNet.Mvc.Html
 
 		public string TokenUrl(string action, string controller)
 		{
+			return TokenUrl(_urlHelper.Action(action, controller));
+		}
+
+		public string TokenUrl(string pathAndQuery)
+		{
+			if (!pathAndQuery.StartsWith("/"))
+				pathAndQuery = "/" + pathAndQuery;
+
 			return string.Format(
 				"{0}://{1}{2}",
 				_urlHelper.RequestContext.HttpContext.Request.ServerVariables["HTTPS"] == "ON" ? "https" : "http",
 				_urlHelper.RequestContext.HttpContext.Request.ServerVariables["HTTP_HOST"],
-				VirtualPathUtility.ToAbsolute(_urlHelper.Action(action, controller))
+				VirtualPathUtility.ToAbsolute(pathAndQuery)
 				);
 		}
 
@@ -31,9 +39,21 @@ namespace EngageNet.Mvc.Html
 			return string.Format(EngageOverlayUrlFormat, EngageProvider.ApplicationDomain, _urlHelper.Encode(tokenUrl));
 		}
 
+		public string OverlayUrl(string pathAndQuery)
+		{
+			var tokenUrl = TokenUrl(pathAndQuery);
+			return string.Format(EngageOverlayUrlFormat, EngageProvider.ApplicationDomain, _urlHelper.Encode(tokenUrl));
+		}
+
 		public string EmbedUrl(string action, string controller)
 		{
 			var tokenUrl = TokenUrl(action, controller);
+			return string.Format(EngageEmbedUrlFormat, EngageProvider.ApplicationDomain, _urlHelper.Encode(tokenUrl));
+		}
+
+		public string EmbedUrl(string pathAndQuery)
+		{
+			var tokenUrl = TokenUrl(pathAndQuery);
 			return string.Format(EngageEmbedUrlFormat, EngageProvider.ApplicationDomain, _urlHelper.Encode(tokenUrl));
 		}
 	}
