@@ -14,11 +14,25 @@ namespace EngageNet.Mvc.Html
 		public MvcHtmlString LogOnLink(string linkText, string action, string controller)
 		{
 			var urlHelper = new UrlHelper(_htmlHelper.ViewContext.RequestContext);
+			string overlayUrl = urlHelper.Engage().OverlayUrl(action, controller);
 
+			return LogOnLinkInternal(linkText, overlayUrl);
+		}
+
+		public MvcHtmlString LogOnLink(string linkText, string pathAndQuery)
+		{
+			var urlHelper = new UrlHelper(_htmlHelper.ViewContext.RequestContext);
+			string overlayUrl = urlHelper.Engage().OverlayUrl(pathAndQuery);
+
+			return LogOnLinkInternal(linkText, overlayUrl);
+		}
+
+		private static MvcHtmlString LogOnLinkInternal(string linkText, string overlayUrl)
+		{
 			var tb = new TagBuilder("a");
 			tb.AddCssClass("rpxnow");
 			tb.Attributes.Add("onclick", "return false;");
-			tb.Attributes.Add("href", urlHelper.Engage().OverlayUrl(action, controller));
+			tb.Attributes.Add("href", overlayUrl);
 			tb.SetInnerText(linkText);
 			return MvcHtmlString.Create(tb.ToString(TagRenderMode.Normal));
 		}
@@ -39,10 +53,24 @@ namespace EngageNet.Mvc.Html
 		public MvcHtmlString InlineWidget(string action, string controller)
 		{
 			var urlHelper = new UrlHelper(_htmlHelper.ViewContext.RequestContext);
+			string embedUrl = urlHelper.Engage().EmbedUrl(action, controller);
 
+			return InlineWidgetInternal(embedUrl);
+		}
+
+		public MvcHtmlString InlineWidget(string pathAndQuery)
+		{
+			var urlHelper = new UrlHelper(_htmlHelper.ViewContext.RequestContext);
+			string embedUrl = urlHelper.Engage().EmbedUrl(pathAndQuery);
+
+			return InlineWidgetInternal(embedUrl);
+		}
+
+		private static MvcHtmlString InlineWidgetInternal(string embedUrl)
+		{
 			var tb = new TagBuilder("iframe");
 			tb.AddCssClass("rpxnow-embedded");
-			tb.Attributes.Add("src", urlHelper.Engage().EmbedUrl(action, controller));
+			tb.Attributes.Add("src", embedUrl);
 			tb.Attributes.Add("scrolling", "no");
 			tb.Attributes.Add("frameborder", "no");
 			tb.Attributes.Add("allowtransparency", "true");
