@@ -25,12 +25,16 @@ namespace EngageNet.Mvc.Html
 			if (!pathAndQuery.StartsWith("/"))
 				pathAndQuery = "/" + pathAndQuery;
 
+			string protocol = _urlHelper.RequestContext.HttpContext.Request.ServerVariables["HTTPS"];
+			string host = _urlHelper.RequestContext.HttpContext.Request.ServerVariables["HTTP_HOST"];
+			bool isHttps = (string.Compare(protocol, "ON", System.StringComparison.InvariantCultureIgnoreCase) == 0);
+
 			return string.Format(
 				"{0}://{1}{2}",
-				_urlHelper.RequestContext.HttpContext.Request.ServerVariables["HTTPS"] == "ON" ? "https" : "http",
-				_urlHelper.RequestContext.HttpContext.Request.ServerVariables["HTTP_HOST"],
+				isHttps ? "https" : "http",
+				host,
 				VirtualPathUtility.ToAbsolute(pathAndQuery)
-				);
+			);
 		}
 
 		public string OverlayUrl(string action, string controller)
