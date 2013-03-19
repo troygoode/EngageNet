@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<package>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>EngageNet.Mvc</id>
-    <version>1.0.0.0</version>
+    <version>1.0.1.0</version>
+    <title>EngageNet.Mvc</title>
     <authors>Troy Goode, Steven Burman</authors>
     <projectUrl>http://github.com/TroyGoode/EngageNet</projectUrl>
     <description><![CDATA[Asp.Net MVC helpers and example impelmentation for the EngageNet library.]]></description>
     <language>en-US</language>
     <dependencies>
-    	<dependency id="EngageNet" minVersion="1.0" />
+    	<dependency id="EngageNet" version="1.0" />
     </dependencies>
   </metadata>
 </package>

@@ -36,7 +36,7 @@ end
 
 exec :package_core => :prepare_package_core do |cmd|
   cmd.log_level = :verbose
-  cmd.path_to_command = 'packaging/NuPack-CTP2.exe'
+  cmd.command = 'packaging/NuPack-CTP2.exe'
   cmd.parameters [
   	'pack',
     'packaging\\EngageNet\\EngageNet.nuspec',
@@ -45,7 +45,7 @@ exec :package_core => :prepare_package_core do |cmd|
 end
 
 exec :package_mvc => :prepare_package_mvc do |cmd|
-  cmd.path_to_command = 'packaging/NuPack-CTP2.exe'
+  cmd.command = 'packaging/NuPack-CTP2.exe'
   cmd.parameters [
   	'pack',
     'packaging\\EngageNet.Mvc\\EngageNet.Mvc.nuspec',
